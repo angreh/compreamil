@@ -1,0 +1,26 @@
+.input-place {
+    padding-top: 5px;
+    position: relative;
+    clear: both;
+}
+.input-place label {
+    width: 185px;
+    text-align: right;
+    display: inline-block;
+    padding-right: 10px;
+}
+.input-place input {
+    outline: none;
+    border: 1px solid #eaeaea;
+    padding: 4px 10px;
+}
+.input-place input:focus {
+    border: 1px solid #000000;
+}
+.col50 {
+    width: 49%;
+    float: left;
+}
+.wrapper-end {
+    display: none;
+}

@@ -1,0 +1,182 @@
+<form>
+    <div class="input-place">
+        <label for="localizacao">Localização</label>
+        <select name="localizacao" id="localizacao">
+            <!-- BEGIN ESTADOS_BLOCK -->
+            <option value="{ID_ESTADO}">{NOME}</option>
+            <!-- END ESTADOS_BLOCK -->
+        </select>
+    </div>
+
+    <h2>Dados do titular</h2>
+
+    <div class="input-place">
+        <label for="nome">Nome completo:</label>
+        <input name="nome" id="nome" type="text">
+    </div>
+
+    <div class="input-place">
+        <label for="cpf">CPF.:</label>
+        <input name="cpf" id="cpf" type="text">
+    </div>
+
+    <div class="input-place">
+        <div class="col50">
+            <label for="rg">RG:</label>
+            <input name="rg" id="rg" type="text">
+        </div>
+        <div class="col50">
+            <label for="emissor">Emissor:</label>
+            <input name="emissor" id="emissor" type="text">
+        </div>
+    </div>
+
+    <div class="input-place">
+        <label for="dataNascimento">Data de nascimento:</label>
+        <input name="dataNascimento" id="dataNascimento" type="text">
+    </div>
+
+    <div class="input-place">
+        <label for="sexo">Sexo:</label>
+        <select name="sexo" id="sexo">
+            <option>Masculino</option>
+            <option>Feminino</option>
+        </select>
+    </div>
+
+    <div class="input-place">
+        <label for="estadoCivil">Estado Civil:</label>
+        <select name="estadoCivil" id="estadoCivil">
+            <option>Masculino</option>
+            <option>Feminino</option>
+        </select>
+    </div>
+
+    <div class="input-place">
+        <label for="email">Email:</label>
+        <input name="email" id="email" type="text">
+    </div>
+
+    <div class="input-place">
+        <label for="telefoneResidencial">Telefone residencial:</label>
+        <input name="telefoneResidencial" id="telefoneResidencial" type="text">
+    </div>
+
+    <div class="input-place">
+        <label for="telefoneCelular">Telefone celular:</label>
+        <input name="telefoneCelular" id="telefoneCelular" type="text">
+    </div>
+
+    <div class="input-place">
+        <label for="nomeMae">Nome da mãe:</label>
+        <input name="nomeMae" id="nomeMae" type="text">
+    </div>
+
+    <h2>Endereço do titular</h2>
+
+    <div class="input-place">
+        <label for="cep">CEP:</label>
+        <input name="cep" id="cep" type="text">
+        <button type="button" id="busca_cep">BUSCAR</button>
+    </div>
+
+    <div class="wrapper-end">
+
+        <div class="input-place">
+            <label for="logradouro">Endereço:</label>
+            <input name="logradouro" id="logradouro" type="text">
+        </div>
+
+        <div class="input-place">
+            <div class="col50">
+                <label for="numero">Número:</label>
+                <input name="numero" id="numero" type="text">
+            </div>
+            <div class="col50">
+                <label for="complemento">Complemento:</label>
+                <input name="complemento" id="complemento" type="text">
+            </div>
+        </div>
+
+        <div class="input-place">
+            <label for="bairro">Bairro:</label>
+            <input name="bairro" id="bairro" type="text">
+        </div>
+
+        <div class="input-place">
+            <label for="cidade">Cidade:</label>
+            <input name="cidade" id="cidade" type="text">
+        </div>
+
+        <div class="input-place">
+            <label for="estado">Estado:</label>
+            <input name="estado" id="estado" type="text">
+        </div>
+
+    </div>
+
+    <h2>Responsável financeiro</h2>
+
+    <div class="wrapper-responsavel">
+
+        <div class="input-place">
+            <label for="resp_nome">Nome completo:</label>
+            <input name="resp_nome" id="resp_nome" type="text">
+        </div>
+
+        <div class="input-place">
+            <label for="resp_cpf">CPF.:</label>
+            <input name="resp_cpf" id="resp_cpf" type="text">
+        </div>
+
+        <div class="input-place">
+            <label for="resp_dataNascimento">Data de nascimento:</label>
+            <input name="resp_dataNascimento" id="resp_dataNascimento" type="text">
+        </div>
+
+        <div class="input-place">
+            <label for="resp_sexo">Sexo:</label>
+            <select name="resp_sexo" id="resp_sexo">
+                <option>Masculino</option>
+                <option>Feminino</option>
+            </select>
+        </div>
+
+        <div class="input-place">
+            <label for="resp_estadoCivil">Estado Civil:</label>
+            <select name="resp_estadoCivil" id="resp_estadoCivil">
+                <option>Masculino</option>
+                <option>Feminino</option>
+            </select>
+        </div>
+
+        <div class="input-place">
+            <label for="resp_email">Email:</label>
+            <input name="resp_email" id="resp_email" type="text">
+        </div>
+
+        <div class="input-place">
+            <label for="resp_grauParentesco">Grau de parentesco:</label>
+            <select name="resp_grauParentesco" id="resp_grauParentesco">
+                <option>Masculino</option>
+                <option>Feminino</option>
+            </select>
+        </div>
+
+    </div>
+
+    <h2>Busca da rede credenciada</h2>
+
+    <h2>Senha</h2>
+
+    <div class="input-place">
+        <label for="senha">Senha:</label>
+        <input name="senha" id="senha" type="password">
+    </div>
+
+    <div class="input-place">
+        <label for="conf_senha">Confirme a senha:</label>
+        <input name="conf_senha" id="conf_senha" type="password">
+    </div>
+
+</form>
