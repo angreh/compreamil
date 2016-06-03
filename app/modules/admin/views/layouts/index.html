@@ -1,5 +1,92 @@
+<!doctype html>
 <html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Compre Amil</title>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css" rel="stylesheet">
+    <link href="/assets/admin/css/index.css" rel="stylesheet">
+</head>
+
 <body>
-{CONTENT}
+
+    <ul id="nav-mobile" class="side-nav fixed">
+        <li><div class="tmz-menu-li-spacer"><img src="/assets/admin/imgs/header_logo2.png"> </div></li>
+        {MENU}
+        <li>&nbsp;</li>
+        <li><a href="/adm/logout">Sair</a></li>
+    </ul>
+
+    <header>
+        <nav class="top-nav">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a class="page-title">{PAGE_TITLE}</a>
+                    <a href="#" id="tmz-mobile-menu" data-activates="nav-mobile" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            {CONTENT}
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l4 s12">
+                    <h5>About TMZ Agency</h5>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc malesuada justo eget ex
+                        dapibus, ut blandit risus aliquam. Suspendisse eget lectus ornare, volutpat eros et, facilisis
+                        quam. Pellentesque dignissim massa sed felis interdum, id ultrices dolor pretium. Aliquam
+                        cursus, erat non vestibulum efficitur, orci mi mattis ipsum, et varius mi tellus ut tortor.
+                        Quisque nec lectus ultricies, auctor erat at, eleifend sapien. Aenean eget ante ante. Nulla
+                        gravida et mi viverra egestas.
+                    </p>
+                </div>
+                <div class="col l4 s12">
+                    <h5>Our services</h5>
+                    <p>
+                        Nullam quis odio mattis, egestas leo ut, hendrerit odio. Aliquam pellentesque purus quis
+                        egestas lacinia. Praesent fermentum molestie metus, eget dignissim neque pellentesque et.
+                        Phasellus at consequat felis. Cras lectus justo, porta faucibus nisl ac, feugiat sollicitudin
+                        lectus. Donec suscipit nisi ut nunc pretium congue. Cras tincidunt tempus quam a bibendum.
+                        Curabitur rhoncus elementum orci.
+                    </p>
+                </div>
+                <div class="col l4 s12">
+                    <h5>Social Networks</h5>
+                    <p>
+                        Mauris aliquet venenatis placerat. Donec suscipit non orci eu ullamcorper. Morbi dapibus ligula
+                        nulla, ut euismod sem condimentum non. Vestibulum id neque ac arcu tincidunt dictum sit amet
+                        eget turpis. Donec quam turpis, vehicula a nisl ac, bibendum mollis metus. Vivamus facilisis
+                        iaculis tincidunt. Vivamus facilisis lacinia semper. Nam ex leo, molestie id pretium a,
+                        vestibulum in mi. Aliquam vitae efficitur velit, id vehicula augue. Nulla facilisi. Phasellus
+                        venenatis sem id augue tincidunt ultrices. Ut efficitur auctor luctus. Etiam ultrices quam ac
+                        neque maximus condimentum.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                @ 2014-2016 TMZ Agency, Todos os direitos reservados
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    <script src="/assets/admin/js/index.js"></script>
+
 </body>
 </html>

@@ -10,14 +10,14 @@ class Instances {
 
     /**
      * Instância da classe Helpers
-     * @var Helpers
+     * @var Instances
      */
     private static $_instance = null;
 
     /**
      * Retorna uma instância de Helpers, caso não exista é criada
      *
-     * @return Helpers
+     * @return Instances
      */
     public static function getInstance() {
         if (self::$_instance == null)
@@ -66,6 +66,14 @@ class Instances {
      * @return Request
      */
     public function Request() {
+        return $this->_getHelperInstance(__FUNCTION__);
+    }
+
+    /**
+     * @return Session
+     */
+    public function Session()
+    {
         return $this->_getHelperInstance(__FUNCTION__);
     }
 

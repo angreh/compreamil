@@ -3,10 +3,35 @@
 $routes = array
 (
     //site
-    ''          => 'site/home/index',
-    'cadastro'  => 'site/home/form',
-    'wizard'    => 'site/home/wizard',
+    ''                  => 'site/home/index',
+    'cadastro'          => 'site/home/form',
+    'wizard'            => 'site/home/wizard',
+    'orcamento'         => 'site/home/orcamento',
+    'new'               => 'site/home/newindex',
+
+    //site actions
+    'compre'            => 'site/actions/compre',
+
+    //Páginas
+    'conheca'           => 'site/pages/conheca',
+    'redecredenciada'   => 'site/pages/redecredenciada',
+    'amildental'        => 'site/pages/amildental',
+    'diferencial'       => 'site/pages/diferencial',
+
+    //contato
+    'contato'           => 'site/contato/index',
 
     //admin
-    'adm'       => 'admin/home/index',
+    'adm/login'         => 'admin/login/index',
+    'adm/logout'        => 'admin/login/logout',
+    'adm'               => 'admin/home/index',
+
+    //pedidos
+    'adm/pedidos'       => 'admin/pedidos/index',
+
+    //usuários
+    'adm/usuarios'              => 'admin/users/index',
+    'adm/usuarios/add'          => 'admin/users/add',
+    'adm/usuarios/edit/{id}'    => 'admin/users/edit',
+    'adm/usuarios/remove/{id}'  => 'admin/users/remove',
 );

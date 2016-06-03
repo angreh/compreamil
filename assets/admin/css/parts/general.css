@@ -1,0 +1,8 @@
+@media (min-width: 992px){
+    header, main, footer {
+        padding-left: 240px;
+    }
+    .container {
+        width: 90%;
+    }
+}

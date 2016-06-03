@@ -1,0 +1,10 @@
+@import "resets.css";
+@import "geral.css";
+@import "header.css";
+@import "footer.css";
+/* contents */
+@import "content/home.css";
+@import 'form/form.css';
+
+
+

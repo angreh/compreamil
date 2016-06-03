@@ -21,6 +21,8 @@ class View
      */
     public static function make( $view, $vars = array(), $layout = true )
     {
+        $module = Request::getInstance()->getModule();
+
         /*
          * Separando as partes informadas nas views
          */
@@ -28,36 +30,55 @@ class View
 
         $view_parts = array
         (
-            'module' => $aux[0],
-            'controller' => $aux[1],
-            'function' => $aux[2]
+            'controller' => $aux[0],
+            'function' => $aux[1]
         );
 
-        /*
-         * Decide se vai ter layout e qual vai ser usado
-         */
-        if ( $layout === false )
-        {
-            self::$tpl = Template::getInstance( MODULES_PATH . $view_parts['module'] . '/views/layouts/no-layout.html');
-        }
-        else
-        {
-            $layout = ( $layout === true )? 'index' : $layout;
-            self::$tpl = Template::getInstance( MODULES_PATH . $view_parts['module'] . '/views/layouts/' . $layout . '.html');
-        }
+        self::setLayout( $module, $layout );
 
         /*
          * Carrega o arquivo de layout
          */
-        $file_view = realpath( MODULES_PATH . $view_parts['module'] . '/views/' . $view_parts['controller'] . '/' . $view_parts['function'] . '.html' );
+        $file_view = realpath( MODULES_PATH . $module . '/views/' . $view_parts['controller'] . '/' . $view_parts['function'] . '.html' );
+
+        if( self::$tpl->exists( 'MENU' ) )
+        {
+            $file = realpath( MODULES_PATH . $module . '/views/menus/' . Instances::getInstance()->Session()->User()->nivel . '.html');
+            self::$tpl->addFile('MENU', $file );
+        }
 
         /*
          * Define CONTENT como variável padrão para conteudo das views
          */
         self::$tpl->addFile('CONTENT', $file_view);
 
+        self::inView();
+
         self::setVars($vars);
 
+        self::show();
+    }
+
+    public static function setLayout( $module = false, $layout = true )
+    {
+        $module = ($module)?$module:Request::getInstance()->getModule();
+
+        /*
+         * Decide se vai ter layout e qual vai ser usado
+         */
+        if ( $layout === false )
+        {
+            self::$tpl = Template::getInstance( MODULES_PATH . $module . '/views/layouts/no-layout.html');
+        }
+        else
+        {
+            $layout = ( $layout === true )? 'index' : $layout;
+            self::$tpl = Template::getInstance( MODULES_PATH . $module . '/views/layouts/' . $layout . '.html');
+        }
+    }
+
+    public static function show()
+    {
         /*
          * Carrega o template
          */
@@ -67,15 +88,15 @@ class View
     /**
      * Não utilizada ainda
      */
-    protected function inView() {
+    public static function inView() {
         if (self::$tpl->exists('ALERT_ERRORS')) {
-            self::$tpl->ALERT_ERRORS = $this->instances->Alerts()->showErrors();
+            self::$tpl->ALERT_ERRORS = Instances::getInstance()->Alerts()->showErrors();
         }
         if (self::$tpl->exists('ALERT_WARNINGS')) {
-            self::$tpl->ALERT_WARNINGS = $this->instances->Alerts()->showWarnings();
+            //self::$tpl->ALERT_WARNINGS = $this->instances->Alerts()->showWarnings();
         }
         if (self::$tpl->exists('ALERT_SUCCESS')) {
-            self::$tpl->ALERT_SUCCESS = $this->instances->Alerts()->showSuccess();
+            //self::$tpl->ALERT_SUCCESS = $this->instances->Alerts()->showSuccess();
         }
     }
 
@@ -84,7 +105,7 @@ class View
      *
      * @param $vars
      */
-    private static function setVars($vars)
+    public static function setVars($vars)
     {
         if (!empty($vars)) {
             foreach ($vars as $var => $value) {
@@ -97,7 +118,10 @@ class View
                         self::$tpl->block($var);
                     }
                 } else {
-                    self::$tpl->$var = $value;
+                    if(self::$tpl->exists($var))
+                    {
+                        self::$tpl->$var = $value;
+                    }
                 }
             }
         }

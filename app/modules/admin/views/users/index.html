@@ -1,0 +1,47 @@
+<h2 class="header">Lista de Usuários</h2>
+
+<blockquote>
+    Listas de usuários que tem acesso ao sistema administrativo do site.
+</blockquote>
+
+<a class="btn" href="/adm/usuarios/add"><i class="material-icons left">add</i>Adicionar</a>
+
+<table class="highlight responsive-table">
+    <thead>
+    <tr>
+        <th>Usuário</th>
+        <th>ID</th>
+        <th>Tipo</th>
+        <th>&nbsp;</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <!-- BEGIN USERS_BLOCK -->
+    <tr>
+        <td>{USER}</td>
+        <td>{ID}</td>
+        <td class="tmz-user-nivel">{NIVEL}</td>
+        <td class="right">
+
+            <a class="btn tmz-edit-buttons" href="/adm/usuarios/edit/{ID}"><i class="material-icons right">edit</i></a>
+            <a class="modal-trigger btn tmz-edit-buttons red" href="#modal{ID}"><i class="material-icons right">clear</i></a>
+
+            <div id="modal{ID}" class="modal">
+                <div class="modal-content">
+                    <h4>Cuidado</h4>
+                    <p>Você deseja remover o usuário <strong>{USER}</strong>? Está ação não pode ser desfeita.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/adm/usuarios/remove/{ID}" class="btn">Remover</a>
+                    <a href="#!" class="modal-action modal-close btn-flat ">Cancelar</a>
+                </div>
+            </div>
+
+        </td>
+    </tr>
+    <!-- END USERS_BLOCK -->
+    </tbody>
+
+</table>
+

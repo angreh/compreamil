@@ -23,7 +23,7 @@ class Request {
      *
      * @var string
      */
-    private $resquest;
+    private $resquest = false;
 
     /**
      *
@@ -95,11 +95,46 @@ class Request {
         //Remove a primeira '/' do request
         $request = substr($_SERVER['REQUEST_URI'], 1);
         $request = ($request===false)?'':$request;
-        if (isset($this->routes[$request])) {
-            $this->resquest = $this->routes[$request];
-        } else {
-            $this->resquest = (string) $request;
+
+        foreach($this->routes as $route => $address){
+            $espression = "/^" . preg_replace(array("/{[A-Za-z]*}/",'/\//'),array('(.*)','\/'),$route) . "$/";
+
+            if(preg_match($espression,$request,$matchValues) == 1)
+            {
+                //limpar o array de valores
+                array_shift($matchValues);
+
+                if( sizeof($matchValues) > 0 )
+                {
+                    //pega as keys
+                    preg_match_all("/({[a-z]*})/",$route,$matchKeys);
+
+                    //limpa o array de keys
+                    $keys = explode(',', str_replace( array('{','}'),'',implode(',',$matchKeys[0])));
+
+                    $variaveis = array();
+                    foreach($keys as $newkey => $newValue)
+                    {
+                        $variaveis[$newValue] = $matchValues[$newkey];
+                    }
+
+                    $this->vars = $variaveis;
+                }
+
+                $this->resquest = $address;
+                break;
+            }
+
+
         }
+
+        if(!$this->resquest)exit('Não foi possivel encontrar a rota');
+
+//        if (isset($this->routes[$request])) {
+//            $this->resquest = $this->routes[$request];
+//        } else {
+//            $this->resquest = (string) $request;
+//        }
 
         //trasnforma em array
         $request = explode('/', $this->resquest);
@@ -138,20 +173,6 @@ class Request {
             $this->action = strtolower($options->defaultAction);
         }
 
-//define variáveis
-        $requestParamsCount = count($request);
-        if ($requestParamsCount > 4) {
-            $vars = array_slice($request, 3);
-            foreach ($vars as $key => $value) {
-//se for par salva a chave e se for impar atribui o valor a chave previamente definida
-                if (!( $key & 1 )) {
-                    $auxKey = $value;
-                } else {
-                    $this->vars[$auxKey] = $value;
-                }
-            }
-        }
-//        exit(var_dump($this->vars));
     }
 
     /**
@@ -221,6 +242,12 @@ class Request {
     }
     PUBLIC FUNCTION getDataValue($variavel){
         return $this->vars[$variavel];
+    }
+
+    public function redirect($route)
+    {
+        header( 'Location: ' . $route );
+        exit;
     }
 
 }

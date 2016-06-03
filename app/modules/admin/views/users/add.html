@@ -1,0 +1,30 @@
+<h2 class="header">Adicionar Usuário</h2>
+
+<blockquote>
+    Adiciona usuário para ter acesso ao sistema administrativo do site.
+</blockquote>
+
+<form method="post">
+    <div class="input-field">
+        <input id="user" type="text" name="user">
+        <label for="user">Usuário</label>
+    </div>
+
+    <div class="input-field">
+        <input id="senha" type="password" name="senha">
+        <label for="senha">Senha</label>
+    </div>
+
+    <div class="input-field tmz-select-label">
+        <select name="nivel">
+            <option value="" disabled selected>Escolha uma opção</option>
+            <option value="0">Administrador</option>
+            <option value="1">Corretor</option>
+        </select>
+    </div>
+
+    <div class="right">
+        <a class="btn-flat tmz-cancel" href="/adm/usuarios">Cancelar</a>
+        <button class="btn"><i class="material-icons right">navigate_next</i>Enviar</button>
+    </div>
+</form>

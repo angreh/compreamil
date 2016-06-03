@@ -1,0 +1,116 @@
+#cadastro .input-place {
+    clear: both;
+}
+#cadastro .input-place label {
+    display: block;
+    color: #00C2DE;
+    padding-left: 10px;
+    font-weight: 300;
+    padding-top: 20px;
+}
+#cadastro .input-place select,
+#cadastro .input-place input {
+    -moz-appearance: none;
+    border: 1px solid #00C2DE;
+    padding: 7px 10px;
+    width: 230px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 0 !important;
+    background-color: #ffffff;
+    -webkit-appearance: none;
+    /*color: #00C2DE;*/
+    color: #008da2;
+}
+#cadastro .input-place .large {
+    width: 400px;
+}
+#cadastro .input-place select {
+    background: url("/assets/site/imgs/select_bg.png") 195px 10px no-repeat;
+}
+#cadastro h1 {
+    font-size: 2.3em;
+    color: #008da2;
+    font-weight: 300;
+}
+#cadastro h2 {
+    font-size: 1.8em;
+    text-transform: uppercase;
+    font-weight: 300;
+    padding-left: 10px;
+    padding-bottom: 8px;
+    color: #008da2;
+    border-bottom: 1px solid #dbdddd;
+    margin-top: 40px;
+}
+.wrapper-end {
+    display: none;
+}
+#cadastro .col50 {
+    float: left;
+}
+#cadastro .wrapper {
+    width: 800px;
+}
+#cadastro .wrapper br {
+    clear: both;
+}
+#cadastro .small {
+    margin-left: 10px;
+}
+#cadastro .small input {
+    width: 160px;
+}
+#busca_cep {
+    border: none;
+    background-color: #008da2;
+    color: #ffffff;
+    height: 35px;
+    width: 85px;
+}
+#wrapper_resp li,
+#cadastro h6 {
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+    color: #00C2DE;
+}
+#cadastro .asks {
+    margin-top: 10px;
+}
+.wrapper-responsavel {
+    clear: both;
+    display: none;
+}
+#cadastro br {
+    clear: both;
+}
+#cadastro .busca-rede-ul {
+    padding-top: 20px;
+}
+#cadastro .busca-rede-ul li {
+    float: left;
+    margin-right: 50px;
+}
+#cadastro .busca-rede-ul li img {
+    width: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+/*body {*/
+    /*overflow-x: visible !important;*/
+/*}*/
+.tooltip {
+    display:none;
+    position:absolute;
+    border: 1px solid #00C2DE;
+    background-color:#ffffff;
+    border-radius:5px;
+    padding:10px;
+    color:#008da2;
+    font-size:12px;
+    width: 200px;
+}
+.tooltip strong {
+    font-weight: 700;
+}

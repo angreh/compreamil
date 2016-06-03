@@ -4,15 +4,31 @@ class Home_Site_Controller extends Controller
 {
     public function index()
     {
-        View::make('site.home.index');
+        View::make('home.index', array(), 'home' );
+    }
+
+    public function newindex()
+    {
+        View::make( 'home.newindex', array(), 'newHome' );
     }
 
     public function form()
     {
+        $model = new Form_Site_Model();
+
+        $data = array(
+            'name'      => $_POST['name'],
+            'email'     => $_POST['email'],
+            'telephone'  => $_POST['telefone']
+        );
+        $pre = $model->preFormPersist($data);
+
         View::make(
-            'site.home.form',
+            'home.form',
             array(
-                'ESTADOS_BLOCK' => $this->getEstados()
+                'ESTADOS_BLOCK' => $this->getEstados(),
+                'NAME' => $pre->name,
+                'EMAIL' => $pre->email,
             )
         );
     }
@@ -20,11 +36,19 @@ class Home_Site_Controller extends Controller
     public function wizard()
     {
         View::make(
-            'site.home.wizard',
+            'home.wizard',
             array
             (
                 'ESTADOS_BLOCK' => $this->getEstados()
             )
+        );
+    }
+
+    public function orcamento()
+    {
+        View::make(
+            'home.orcamento',
+            array()
         );
     }
 

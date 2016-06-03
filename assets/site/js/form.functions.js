@@ -1,31 +1,54 @@
-$(function()
+
+function applyTooltip(){
+    $('.masterTooltip').hover(function(){
+        // Hover over code
+        var title = $(this).attr('title');
+        $(this).data('tipText', title).removeAttr('title');
+        $('<p class="tooltip"></p>')
+            .html(title)
+            .appendTo('body')
+            .fadeIn('slow');
+    }, function() {
+        // Hover out code
+        $(this).attr('title', $(this).data('tipText'));
+        $('.tooltip').remove();
+    }).mousemove(function(e) {
+        var mousex = e.pageX + 20; //Get X coordinates
+        var mousey = e.pageY - 30; //Get Y coordinates
+        $('.tooltip')
+            .css({ top: mousey, left: mousex })
+    });
+}
+
+
+function applyMasks()
 {
-    $( '#cpf' ).mask
+    $('#cpf').mask
     (
         '000.000.000-00'
     );
 
-    $( '#dataNascimento' ).mask
+    $('#dataNascimento').mask
     (
         '00/00/0000'
     );
 
-    $( '#telefoneResidencial' ).mask
+    $('#telefoneResidencial').mask
     (
         '(00) 0000-0000'
     );
 
-    $( '#cep' ).mask
+    $('#cep').mask
     (
         '00000-000'
     );
 
-    $( '#resp_cpf').mask
+    $('#resp_cpf').mask
     (
         '000.000.000-00'
     );
 
-    $( 'resp_dataNascimento').mask
+    $('#resp_dataNascimento').mask
     (
         '00/00/0000'
     );
@@ -35,24 +58,34 @@ $(function()
     $("#busca_cep").on
     (
         'click',
-        function()
-        {
+        function () {
             buscaCep();
         }
     );
 
-    $( '#cep' ).keypress
+    $('#cep').keypress
     (
-        function(e)
-        {
-            if( e.which == 13 )
-            {
+        function (e) {
+            $('.wrapper-end').slideUp();
+            if (e.which == 13) {
                 buscaCep();
                 return false;
             }
         }
     );
-});
+
+    /* RADIO FUNCTIONS */
+    $('input[name=responsavel]').change(function(){
+        if($(this).val() == 'true')
+        {
+            $( '.wrapper-responsavel').slideUp();
+        }
+        else
+        {
+            $( '.wrapper-responsavel').slideDown();
+        }
+    });
+}
 
 var SPMaskBehavior = function (val)
     {

@@ -1,0 +1,217 @@
+/* BANNER : BEGIN */
+#banner {
+    background: url("/assets/site/imgs/bannerBG.jpg") bottom no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 10;
+}
+#banner #family {
+    background-image: url("/assets/site/imgs/bannerFamily.png");
+    width: 1690px;
+    height: 707px;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+}
+#home_form {
+    float: right;
+    position: relative;
+    margin: 100px 0 50px;
+    padding: 30px 20px 20px 20px;
+    width: 420px;
+    background-color: #ffffff;
+    border-top: 15px solid #00C2DE;
+}
+#home_form .wrapper-slogan-stamp {
+    position: relative;
+}
+#home_form #slogan {
+    width: 265px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#home_form .stamp {
+    background: url("/assets/site/imgs/form_stamp.png") no-repeat;
+    background-size: cover;
+    width: 101px;
+    height: 101px;
+    display: inline-block;
+    margin-left: 7px;
+    vertical-align: middle;
+    font-weight: 600;
+    font-style: italic;
+    color: #ffffff;
+    padding-top: 20px;
+    padding-left: 0px;
+    text-align: center;
+}
+#home_form .stamp .one {
+    font-size: 0.95em;
+}
+#home_form .stamp .two {
+    font-size: 1.6em;
+    margin-top: -10px;
+}
+#home_form .stamp .three {
+    margin-top: -15px;
+    font-size: 1.1em;
+}
+#home_form label {
+    color: #47bad0;
+    font-size: 1.2em;
+    margin-top: 15px;
+    font-weight: 200;
+    display: inline-block;
+}
+#home_form span {
+    color: #ff9c00;
+}
+#home_form input {
+    border: 1px solid #00C2DE;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+}
+#home_form p {
+    color: #47bad0;
+    font-size: 0.8em;
+}
+#home_form .buttons {
+    position: relative;
+    padding-top: 20px;
+    width: 100%;
+}
+#home_form .buttons button:first-child {
+    padding: 15px 30px;
+    border: none;
+    background-color: #ffffff;
+    font-size: 1em;
+    color: #00C2DE;
+}
+#home_form .buttons button[type=submit] {
+    background-color: #FF9C00;
+    border: none;
+    color: #ffffff;
+    float: right;
+    font-size: 1.1em;
+    padding: 15px 30px;
+}
+/* BANNER : END */
+
+/* DESCRIPTIONS : BEGIN */
+#descriptions .band {
+    height:  150px;
+    background: url("/assets/site/imgs/texture.png");
+}
+#descriptions .titles {
+    margin: -80px auto 50px;
+    position: relative;
+    width: 630px;
+}
+#descriptions .titles .one,
+#descriptions .titles .two,
+#descriptions .titles .three {
+    display: inline-block;
+    margin-right: 70px;
+    text-align: center;
+    border-radius: 80px;
+    font-size: 14px;
+    vertical-align: middle;
+    position: relative;
+}
+#descriptions .titles .inner {
+    padding: 0 20px;
+    display: table-cell;
+    height: 160px;
+    width: 160px;
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1.3em;
+    color: #ffffff;
+}
+#descriptions .titles .one {
+    background-color: #a6a9aa;
+    box-shadow:
+    0 0 0 7px #ffffff,
+    0 0 0 10px #a6a9aa,
+    0 0 0 20px #ffffff;
+}
+#descriptions .titles .two {
+    background-color: #00c2de;
+    box-shadow:
+    0 0 0 7px #ffffff,
+    0 0 0 10px #00c2de,
+    0 0 0 20px #ffffff;
+}
+#descriptions .titles .three {
+    background-color: #008da2;
+    box-shadow:
+    0 0 0 7px #ffffff,
+    0 0 0 10px #008da2,
+    0 0 0 20px #ffffff;
+    margin-right: 0;
+}
+#descriptions .titles>div:hover {
+    background-color: #FF9C00;
+    cursor: pointer;
+}
+#descriptions .contents {
+    display: block;
+    padding: 0 30px 50px 30px;
+}
+#descriptions .contents .hr {
+    height: 2px;
+    background-color: #008da2;
+    position: relative;
+}
+#descriptions .contents .hr:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    background-image: url("/assets/site/imgs/hr_dot.png");
+    width: 12px;
+    height: 12px;
+    top: -5px;
+    left: 0;
+}
+#descriptions .contents .title {
+    color: #008da2;
+    font-size: 1.5em;
+    background-color: #ffffff;
+    margin: -20px 0 0 20px;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+    float: left;
+}
+#descriptions .contents .subtitle {
+    float: left;
+    clear: both;
+    font-weight: 300;
+    color: #008da2;
+    font-size: 0.9em;
+    margin-left: 32px;
+    margin-top: -5px;
+}
+#descriptions p {
+    font-weight: 200;
+    font-size: 1.1em;
+    color: #a6a9aa;
+    display: block;
+    padding: 20px 80px 50px 18px;
+}
+#descriptions .contents li {
+    background: url("/assets/site/imgs/li_dot.png") left no-repeat;
+    padding-left: 14px;
+    color: #a6a9aa;
+    font-weight: 200;
+    font-size: 1.1em;
+}
+#descriptions .contents ul {
+    margin-left: 18px;
+    clear: both;
+    padding-top: 10px;
+}
+/* DESCRIPTIONS : END */

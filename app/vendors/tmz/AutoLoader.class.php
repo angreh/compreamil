@@ -53,7 +53,7 @@ class AutoLoader {
             $type = '';
         }
 
-        $classTypes = array('Mapper', 'Model', 'Controller', 'Form');
+        $classTypes = array('Mapper', 'Model', 'Controller', 'Form', 'Bo', 'Dao');
 
         if (in_array($type, $classTypes)) {
             require 'app/modules/' . strtolower($module) . '/' . strtolower($type) . 's/' . $name . '.class.php';

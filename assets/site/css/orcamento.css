@@ -1,0 +1,87 @@
+#orcamento {
+    padding-bottom: 50px;
+}
+#orcamento .ip-place label {
+    display: block;
+    color: #00C2DE;
+    padding-left: 10px;
+    font-weight: 300;
+    padding-top: 20px;
+}
+#orcamento .ip-place select,
+#orcamento .ip-place input {
+    border: 1px solid #00C2DE;
+    padding: 7px 10px;
+    width: 450px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 0 !important;
+    background-color: #ffffff;
+    -webkit-appearance: none;
+    /*color: #00C2DE;*/
+    color: #008da2;
+}
+#orcamento .ip-place select {
+    background: url("/assets/site/imgs/select_bg.png") 415px 10px no-repeat;
+}
+#orcamento h1 {
+    font-size: 2em;
+    font-weight: 900;
+    font-style: italic;
+    padding-left: 20px;
+    color: #FF9C00;
+}
+#orcamento .left {
+    float: left;
+    width: 48%;
+}
+#orcamento .half {
+    float: left;
+    width: 220px !important;
+}
+#orcamento .half label,
+#orcamento .half input {
+    display: inline-block;
+    width: 220px;
+}
+#orcamento .left button {
+    float: left;
+    background: #FF9C00;
+    color: #ffffff;
+    margin-left: 20px;
+    padding: 15px 0;
+    border: 0;
+    width: 210px;
+    margin-top: 30px;
+}
+#orcamento .right {
+    float: right;
+    width: 50%;
+    color: #008da2;
+    padding-top: 78px;
+}
+#orcamento br {
+    clear: both;
+}
+#orcamento h4 {
+    font-size: 1.4em;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+#orcamento h4 strong {
+    font-weight: 700;
+}
+#orcamento .right li {
+    background: url("/assets/site/imgs/arrow.png") no-repeat 0 5px;
+    padding-left: 18px;
+    padding-bottom: 10px;
+    font-weight: 300;
+}
+#orcamento .right li strong {
+    font-weight: 700;
+}
+#orcamento .right p {
+    font-size: 0.8em;
+    font-weight: 300;
+    padding-top: 30px;
+}

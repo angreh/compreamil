@@ -1,0 +1,31 @@
+<h2 class="header">Editar Usuário</h2>
+
+<blockquote>
+    Edita usuário existente
+</blockquote>
+
+<form method="post" id="usuarios-edit">
+    <input type="hidden" name="id" value="{ID}">
+    <div class="input-field">
+        <input id="user" type="text" name="user" value="{USER}">
+        <label for="user">Usuário</label>
+    </div>
+
+    <div class="input-field">
+        <input id="senha" type="password" name="senha">
+        <label for="senha">Senha</label>
+    </div>
+
+    <div class="input-field tmz-select-label">
+        <select name="nivel" id="edit_{NIVEL}">
+            <option value="" disabled selected>Escolha uma opção</option>
+            <option value="0">Administrador</option>
+            <option value="1">Corretor</option>
+        </select>
+    </div>
+
+    <div class="right">
+        <a class="btn-flat tmz-cancel" href="/adm/usuarios">Cancelar</a>
+        <button class="btn"><i class="material-icons right">navigate_next</i>Enviar</button>
+    </div>
+</form>

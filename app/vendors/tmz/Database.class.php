@@ -91,12 +91,13 @@ class Database {
         if ($this->host == null) {
             throw new Exception('Banco de dados não configurado!');
         }
-        $this->_con = mysql_connect($this->host, $this->user, $this->pass);
+        @ $this->_con = mysql_connect($this->host, $this->user, $this->pass);
+
         if ($this->_con && mysql_select_db($this->bd_db, $this->_con)) {
             mysql_query("SET character_set_results = '" . $this->charset . "', character_set_client = '" . $this->charset . "', character_set_connection = '" . $this->charset . "', character_set_database = '" . $this->charset . "', character_set_server = '" . $this->charset . "'", $this->_con);
             return true;
         } else {
-            return false;
+            exit('Nao foi possivel se conectar a base de dados.');
         }
     }
 
@@ -228,7 +229,7 @@ class Database {
             $result = false;
         }
 
-        $this->close();
+        //$this->close();
 
         return $result;
     }
@@ -273,7 +274,7 @@ class Database {
             $return = false;
         }
 
-        $this->close();
+        //$this->close();
 
         return $return;
     }
@@ -311,7 +312,7 @@ class Database {
         else
             $return = false;
 
-        $this->close();
+        //$this->close();
 
         return $return;
     }
@@ -421,7 +422,7 @@ class Database {
         }
         $result = mysql_query($options->sql, $this->_con);
         if ($options->connect) {
-            $this->close();
+            //$this->close();
         }
         return $result;
     }
@@ -520,7 +521,7 @@ class Database {
      * Retorna o ultimo id inserido no banco
      */
     public function last_insert_id() {
-        return mysql_insert_id();
+        return mysql_insert_id($this->_con);
     }
 
     /**

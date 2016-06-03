@@ -1,0 +1,16 @@
+#nav-mobile {
+    background-color: #fff3e0;
+}
+.side-nav a {
+    height: 30px;
+    line-height: 30px;
+}
+.tmz-menu-li-spacer {
+    padding: 0 30px;
+    position: relative;
+}
+.tmz-menu-li-spacer img {
+    width: 70%;
+    height: auto;
+    padding-top: 50px;
+}

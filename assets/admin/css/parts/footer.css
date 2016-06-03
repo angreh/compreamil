@@ -1,0 +1,16 @@
+footer.page-footer {
+    background-color: #ef6c00;
+}
+footer.page-footer .footer-copyright {
+    background-color: #e65100;
+}
+footer.page-footer .footer-copyright .container {
+    font-size: 0.9em;
+}
+footer.page-footer h5 {
+    color: #ffffff;
+}
+footer.page-footer p {
+    color: #fff3e0;
+    font-weight: 200;
+}
