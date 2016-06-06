@@ -28,35 +28,11 @@
     position: relative;
 }
 #home_form #slogan {
-    width: 265px;
-    display: inline-block;
-    vertical-align: middle;
+    width: 100%;
 }
-#home_form .stamp {
-    background: url("/assets/site/imgs/form_stamp.png") no-repeat;
-    background-size: cover;
-    width: 101px;
-    height: 101px;
-    display: inline-block;
-    margin-left: 7px;
-    vertical-align: middle;
-    font-weight: 600;
-    font-style: italic;
-    color: #ffffff;
-    padding-top: 20px;
-    padding-left: 0px;
-    text-align: center;
-}
-#home_form .stamp .one {
-    font-size: 0.95em;
-}
-#home_form .stamp .two {
-    font-size: 1.6em;
-    margin-top: -10px;
-}
-#home_form .stamp .three {
-    margin-top: -15px;
-    font-size: 1.1em;
+#slogan img {
+    width: 100%;
+    height: auto;
 }
 #home_form label {
     color: #47bad0;
@@ -200,7 +176,7 @@
     font-size: 1.1em;
     color: #a6a9aa;
     display: block;
-    padding: 20px 80px 50px 18px;
+    padding: 20px 80px 30px 18px;
 }
 #descriptions .contents li {
     background: url("/assets/site/imgs/li_dot.png") left no-repeat;
@@ -212,6 +188,30 @@
 #descriptions .contents ul {
     margin-left: 18px;
     clear: both;
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 /* DESCRIPTIONS : END */
+
+/* .content-'s : BEGIN */
+.fulllist-show {
+    cursor: pointer;
+    color: #00c2de;
+}
+.coberturas-fulllist,
+.content-redecredenciada,
+.content-conhecaamil,
+.content-orcamentoonline,
+.content-diferenciais,
+.content-faleconosco,
+.content-porquecontratar {
+    display: none;
+}
+.clicker {
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+#footer a.clicker {
+    color: #ffffff;
+}
+/* .content-'s : END */

@@ -39,8 +39,19 @@ class Users_Admin_Controller extends Secure_Admin_Controller
         $id = Instances::getInstance()->Request()->getDataValue('id');
 
         $userModel = new Users_Admin_Model();
-        $user = $userModel->getUser($id);
 
+        if( isset($_POST['user']) )
+        {
+            $data = array(
+                'ID' => $_POST['id'],
+                'user' => $_POST['user'],
+                'pass' => $_POST['senha'],
+                'nivel' => $_POST['nivel']
+            );
+            $userModel->alterUser( $data );
+        }
+
+        $user = $userModel->getUser($id);
         View::make('users.edit',array(
             'PAGE_TITLE' => 'Usuários',
             'ID' => $user->ID,
@@ -55,7 +66,5 @@ class Users_Admin_Controller extends Secure_Admin_Controller
 
         $userModel = new Users_Admin_Model();
         $userModel->removeUser($id);
-
-        Instances::getInstance()->Request()->redirect( '/adm/usuarios' );
     }
 }

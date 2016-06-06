@@ -23,6 +23,8 @@ class Users_Admin_Model
         $usersDao = new User_Site_Dao();
         $usersDao->insert($data);
 
+        Instances::getInstance()->Alerts()->success( 'Usuário adicionado com sucesso.' );
+
         Instances::getInstance()->Request()->redirect('/adm/usuarios');
     }
 
@@ -38,9 +40,23 @@ class Users_Admin_Model
         return $user;
     }
 
+    public function alterUser($data)
+    {
+        $dao = new User_Site_Dao();
+        $dao->alterOne($data);
+
+        Instances::getInstance()->Alerts()->success( 'Usuário editado com sucesso.' );
+
+        Instances::getInstance()->Request()->redirect( '/adm/usuarios' );
+    }
+
     public function removeUser($id)
     {
         $userDao = new User_Site_Dao();
         $userDao->remove($id);
+
+        Instances::getInstance()->Alerts()->success( 'Usuário removido com sucesso.' );
+
+        Instances::getInstance()->Request()->redirect( '/adm/usuarios' );
     }
 }

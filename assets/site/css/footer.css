@@ -68,7 +68,16 @@
     font-style: italic;
     font-size: 1.5em;
     position: absolute;
-    top: 90px;
+    top: 55px;
     right: 0;
     letter-spacing: 0.1em;
+}
+#footer .footer-cdc-logo {
+    position: absolute;
+    right: 57px;
+    top: 125px;
+}
+#footer a.clicker {
+    color: #ffffff;
+    text-decoration: none;
 }

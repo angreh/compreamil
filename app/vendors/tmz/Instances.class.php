@@ -100,6 +100,18 @@ class Instances {
     }
 
     /**
+     * Retorna uma instência de Translator, para mais informações olhar o método
+     * _getHelperInstance. Para mais informações sobre a classe Translator olhar
+     * a classe em helpers/Validator.class.php
+     *
+     * @return Validator
+     */
+    public function Validator() {
+        return $this->_getHelperInstance(__FUNCTION__);
+    }
+
+
+    /**
      * Retorna uma instência de Security, para mais informações olhar o método
      * _getHelperInstance. Para mais informações sobre a classe Security olhar
      * a classe em helpers/Security.class.php

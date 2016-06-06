@@ -1,5 +1,6 @@
 #orcamento {
     padding-bottom: 50px;
+    padding-top: 60px;
 }
 #orcamento .ip-place label {
     display: block;
@@ -84,4 +85,82 @@
     font-size: 0.8em;
     font-weight: 300;
     padding-top: 30px;
+}
+#orcamento .panel-value {
+    -webkit-box-shadow: 4px 4px 0px 0px rgba(48,180,204,1);
+    -moz-box-shadow: 4px 4px 0px 0px rgba(48,180,204,1);
+    box-shadow: 4px 4px 0px 0px rgba(48,180,204,1);
+    border: 1px solid #47bad0;
+    padding: 15px 35px;
+    float: left;
+    margin-right: 40px;
+    text-align: center;
+}
+#orcamento .panel-value .price {
+    font-weight: 700;
+    font-size: 2em;
+    color: #00c2de;
+    font-style: italic;
+}
+#orcamento .panel-value .detail {
+    color: #ff9c00;
+    font-style: italic;
+    text-transform: uppercase;
+}
+#orcamento .orcamento-contratar {
+    background-color: #ff9c00;
+    color: #ffffff;
+    border: none;
+    margin-top: 40px;
+    font-size: 1.8em;
+    padding: 8px 55px;
+}
+#orcamento .tmz-types .title {
+    font-style: italic;
+    font-weight: 700;
+    font-size: 1.6em;
+}
+#orcamento .tmz-types .detail {
+    font-style: italic;
+    color: #ff9c00;
+}
+#orcamento .tmz-types {
+    margin-bottom: 60px;
+}
+#orcamento .tmz-result {
+    display: none;
+}
+#orcamento .parcelas {
+    width: 335px;
+    float: left;
+}
+#orcamento .parcelas li {
+    background: none;
+    -webkit-box-shadow: 4px 4px 0px 0px rgba(48,180,204,1);
+    -moz-box-shadow: 4px 4px 0px 0px rgba(48,180,204,1);
+    box-shadow: 4px 4px 0px 0px rgba(48,180,204,1);
+    border: 1px solid #47bad0;
+    float: left;
+    position: relative;
+    padding: 5px 10px;
+    margin: 0 10px 10px 0;
+    width: 155px;
+}
+#orcamento .parcelas .valores {
+    float: right;
+}
+#orcamento .parcelas .prestacoes {
+    display: inline-block;
+}
+#orcamento .details .panel {
+    -webkit-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    -moz-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    border: 1px solid #FF9C00;
+    float: right;
+    width: 185px;
+    height: 55px;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-top: 14px;
 }

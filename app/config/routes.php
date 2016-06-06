@@ -6,8 +6,11 @@ $routes = array
     ''                  => 'site/home/index',
     'cadastro'          => 'site/home/form',
     'wizard'            => 'site/home/wizard',
-    'orcamento'         => 'site/home/orcamento',
     'new'               => 'site/home/newindex',
+
+    'orcamento'         => 'site/orcamento/index',
+    'orcamento/calc'         => 'site/orcamento/calc',
+
 
     //site actions
     'compre'            => 'site/actions/compre',

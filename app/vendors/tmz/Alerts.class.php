@@ -39,4 +39,23 @@ class Alerts
             return $messages;
         }
     }
+
+    public function success( $message )
+    {
+        if( !isset($_SESSION['ALERTS_SUCCESS']) )
+        {
+            $_SESSION['ALERTS_SUCCESS'] = array();
+        }
+        $_SESSION['ALERTS_SUCCESS'][] = '<p>' . $message . '</p>';
+    }
+
+    public function showSuccess()
+    {
+        if( isset($_SESSION['ALERTS_SUCCESS']) )
+        {
+            $messages = '<div class="ALERTS_SUCCESS">' . implode('', $_SESSION['ALERTS_SUCCESS']) . '</div>';
+            unset( $_SESSION['ALERTS_SUCCESS'] );
+            return $messages;
+        }
+    }
 }

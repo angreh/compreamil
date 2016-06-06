@@ -14,6 +14,28 @@ class Home_Site_Controller extends Controller
 
     public function form()
     {
+        $fail = false;
+        if( !Instances::getInstance()->Validator()->null($_POST['name']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('Nome inválido');
+        }
+
+        if( !Instances::getInstance()->Validator()->email($_POST['email']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('Email inválido.');
+        }
+
+        if( !Instances::getInstance()->Validator()->phone($_POST['telefone']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('Telefone inválido.');
+        }
+
+        if( $fail )
+            Instances::getInstance()->Request()->redirect( '/' );
+
         $model = new Form_Site_Model();
 
         $data = array(
@@ -21,6 +43,7 @@ class Home_Site_Controller extends Controller
             'email'     => $_POST['email'],
             'telephone'  => $_POST['telefone']
         );
+
         $pre = $model->preFormPersist($data);
 
         View::make(
@@ -44,13 +67,6 @@ class Home_Site_Controller extends Controller
         );
     }
 
-    public function orcamento()
-    {
-        View::make(
-            'home.orcamento',
-            array()
-        );
-    }
 
     private function getEstados()
     {

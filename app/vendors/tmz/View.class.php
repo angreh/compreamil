@@ -68,7 +68,8 @@ class View
          */
         if ( $layout === false )
         {
-            self::$tpl = Template::getInstance( MODULES_PATH . $module . '/views/layouts/no-layout.html');
+            $file = realpath( LIBRARY_PATH . 'tmz/view/no_layout.html' );
+            self::$tpl = Template::getInstance( $file );
         }
         else
         {
@@ -89,13 +90,14 @@ class View
      * Não utilizada ainda
      */
     public static function inView() {
-        if (self::$tpl->exists('ALERT_ERRORS')) {
-            self::$tpl->ALERT_ERRORS = Instances::getInstance()->Alerts()->showErrors();
+        if (self::$tpl->exists('ALERTS_ERRORS')) {
+            self::$tpl->ALERTS_ERRORS = Instances::getInstance()->Alerts()->showErrors();
         }
         if (self::$tpl->exists('ALERT_WARNINGS')) {
             //self::$tpl->ALERT_WARNINGS = $this->instances->Alerts()->showWarnings();
         }
-        if (self::$tpl->exists('ALERT_SUCCESS')) {
+        if (self::$tpl->exists('ALERTS_SUCCESS')) {
+            self::$tpl->ALERTS_SUCCESS = Instances::getInstance()->Alerts()->showSuccess();
             //self::$tpl->ALERT_SUCCESS = $this->instances->Alerts()->showSuccess();
         }
     }

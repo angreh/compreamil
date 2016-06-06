@@ -120,6 +120,31 @@ class Dao
 
     }
 
+    public function alterOne($data)
+    {
+        $id = $data['ID'];
+        unset( $data['ID'] );
+
+        if( empty($data['pass']) )
+            unset($data['pass']);
+        else
+            $data['pass'] = md5($data['pass']);
+
+        $data = $this->preFormatValue($data);
+
+        $fieldsArr = array();
+        foreach( $data as  $field => $value )
+        {
+            $fieldsArr[] = $this->bo->map[$field] . '=' . $value;
+        }
+        $fields = implode( ',', $fieldsArr );
+
+        $result = Instances::getInstance()->Database()->query(array(
+            'sql'   => "UPDATE " . $this->bo->table . " SET $fields WHERE " . $this->bo->map['ID'] . '=' . $id,
+            'debug' => false
+        ));
+    }
+
     public function remove ($id)
     {
         $result = Instances::getInstance()->Database()->query(array(

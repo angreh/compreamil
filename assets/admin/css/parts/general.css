@@ -6,3 +6,27 @@
         width: 90%;
     }
 }
+.ALERTS_ERRORS {
+    border: 1px solid #C5270E;
+    background-color: #F4BDBA;
+    color: #C5270E;
+    padding: 5px 8px;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+.ALERTS_ERRORS p {
+    background: url("/assets/admin/imgs/icon_alertError.png") no-repeat 0 2px;
+    padding-left: 20px;
+}
+.ALERTS_SUCCESS {
+    border: 1px solid #598900;
+    background-color: #e0f2bd;
+    color: #598900;
+    padding: 5px 8px;
+    font-weight: 300;
+    font-size: 0.8em;
+}
+.ALERTS_SUCCESS p {
+    background: url("/assets/admin/imgs/icon_alertSuccess.png") no-repeat 0 2px;
+    padding-left: 20px;
+}
