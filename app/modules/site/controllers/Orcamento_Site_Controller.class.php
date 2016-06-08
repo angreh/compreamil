@@ -12,6 +12,44 @@ class Orcamento_Site_Controller extends Controller
 
     public function calc()
     {
+        $fail = false;
+        if( !Instances::getInstance()->Validator()->null($_POST['name']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('Nome inválido');
+        }
+
+        if( !Instances::getInstance()->Validator()->email($_POST['email']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('Email inválido.');
+        }
+
+        if( !Instances::getInstance()->Validator()->phone($_POST['telefone']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('Telefone inválido.');
+        }
+
+        if( empty($_POST['numero']) )
+        {
+            $fail = true;
+            Instances::getInstance()->Alerts()->error('É necessário informar o número de pessoas.');
+        }
+
+
+        if( $fail )
+            exit( 'redirect' );
+
+        $dataPre = array(
+            'name'      => $_POST['name'],
+            'email'     => $_POST['email'],
+            'telephone'  => $_POST['telefone']
+        );
+
+        $model = new Form_Site_Model();
+        $model->orcamento( $dataPre );
+
         $data = $_POST;
         if( $data['pag'] == 'cartao' )
         {

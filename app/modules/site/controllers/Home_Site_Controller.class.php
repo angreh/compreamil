@@ -14,44 +14,51 @@ class Home_Site_Controller extends Controller
 
     public function form()
     {
-        $fail = false;
-        if( !Instances::getInstance()->Validator()->null($_POST['name']) )
+        if( isset( $_POST['name'] ) )
         {
-            $fail = true;
-            Instances::getInstance()->Alerts()->error('Nome inválido');
+            $fail = false;
+            if( !Instances::getInstance()->Validator()->null($_POST['name']) )
+            {
+                $fail = true;
+                Instances::getInstance()->Alerts()->error('Nome inválido');
+            }
+
+            if( !Instances::getInstance()->Validator()->email($_POST['email']) )
+            {
+                $fail = true;
+                Instances::getInstance()->Alerts()->error('Email inválido.');
+            }
+
+            if( !Instances::getInstance()->Validator()->phone($_POST['telefone']) )
+            {
+                $fail = true;
+                Instances::getInstance()->Alerts()->error('Telefone inválido.');
+            }
+
+            if( $fail )
+                Instances::getInstance()->Request()->redirect( '/' );
+
+            $model = new Form_Site_Model();
+
+            $data = array(
+                'name'      => $_POST['name'],
+                'email'     => $_POST['email'],
+                'telephone'  => $_POST['telefone']
+            );
+
+            $model->preFormPersist($data);
         }
 
-        if( !Instances::getInstance()->Validator()->email($_POST['email']) )
-        {
-            $fail = true;
-            Instances::getInstance()->Alerts()->error('Email inválido.');
-        }
-
-        if( !Instances::getInstance()->Validator()->phone($_POST['telefone']) )
-        {
-            $fail = true;
-            Instances::getInstance()->Alerts()->error('Telefone inválido.');
-        }
-
-        if( $fail )
-            Instances::getInstance()->Request()->redirect( '/' );
-
-        $model = new Form_Site_Model();
-
-        $data = array(
-            'name'      => $_POST['name'],
-            'email'     => $_POST['email'],
-            'telephone'  => $_POST['telefone']
-        );
-
-        $pre = $model->preFormPersist($data);
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+        $dao = new Order_Site_Dao();
+        $order = (object) $dao->getOneWithPre( $id );
 
         View::make(
             'home.form',
             array(
                 'ESTADOS_BLOCK' => $this->getEstados(),
-                'NAME' => $pre->name,
-                'EMAIL' => $pre->email,
+                'NAME' => $order->name,
+                'EMAIL' => $order->email,
             )
         );
     }

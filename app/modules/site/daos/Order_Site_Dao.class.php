@@ -35,4 +35,23 @@ class Order_Site_Dao extends Dao
 
         return $orders;
     }
+
+    public function getOneWithPre($id)
+    {
+        $result = Instances::getInstance()->Database()->query(array(
+            'sql' => "
+              SELECT    orders.qf_id as 'orderID',
+		                orders.qf_mh as 'method',
+                        orders.qf_st as 'status',
+                        pre.ui_nm as 'name',
+                        pre.ui_em as 'email',
+                        pre.ui_tc as 'telephone'
+              FROM	    gp_qf orders, gp_ui pre
+              WHERE 	orders.qf_id=pre.ui_qf_id AND orders.qf_id=" . $id
+        ));
+
+        $classArr = Instances::getInstance()->Database()->fetch($result);
+
+        return $classArr;
+    }
 }

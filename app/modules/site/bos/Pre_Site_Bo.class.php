@@ -15,6 +15,9 @@ class Pre_Site_Bo
     // tc
     public $telephone;
 
+    // ui_qp
+    public $people;
+
     // qf_id
     public $orderID;
 
@@ -28,6 +31,7 @@ class Pre_Site_Bo
             'name' => 'ui_nm',
             'email' => 'ui_em',
             'telephone' => 'ui_tc',
+            'people' => 'ui_qp',
             'orderID' => 'ui_qf_id'
         );
     }

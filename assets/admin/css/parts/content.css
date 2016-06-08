@@ -5,6 +5,7 @@ main > .container {
     display: none;
 }
 .tmz-order-sollig,
+.tmz-order-orcamento,
 .tmz-order-inc {
     padding: 2px 8px;
     color: #ffffff;
@@ -16,6 +17,9 @@ main > .container {
 }
 .tmz-order-sollig {
     background-color: #e65100;
+}
+.tmz-order-orcamento {
+    background-color: #008da2;
 }
 .header {
     font-weight: 200;

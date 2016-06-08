@@ -22,12 +22,12 @@ $(function()
         return true;
     });
 
-    if( $('#orcamento-form') )
+    if( $('#orcamento-form').length )
     {
         applyOrcamentoFunctions();
     }
 
-    if( $('#home_form').length )
+    if( $('#home_form').length || $( '#orcamento-form').length )
     {
         $('#telefone').mask( SPMaskBehavior, spOptions );
     }
@@ -85,12 +85,20 @@ function applyOrcamentoFunctions()
 function orcSubmit(){
     var formData = $('#orcamento-form').serialize();
 
+    if( $( '.ALERTS_ERRORS' ).length )
+    {
+        $( '.ALERTS_ERRORS' ).slideUp();
+    }
+
     $.ajax({
         method: 'POST',
         url: '/orcamento/calc',
         data: formData,
         success: function(data)
         {
+            if(data == 'redirect'){
+                location.reload(true);
+            }
             $( '.tmz-infos').html(data);
         }
     });

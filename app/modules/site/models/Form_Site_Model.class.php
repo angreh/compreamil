@@ -17,7 +17,28 @@ class Form_Site_Model
         $data['orderID'] = $order->ID;
         $pre = $preDao->insert( $data );
 
+        Instances::getInstance()->Session()->setVar( 'site_order', $order->ID );
+
         return $pre;
 
+    }
+
+    public function orcamento( $data )
+    {
+        $orderDao = new Order_Site_Dao();
+
+        $orderData = array(
+            'method' => 3,
+            'status' => 4
+        );
+        $order = $orderDao->insert( $orderData );
+
+        $preDao = new Pre_Site_Dao();
+        $data['orderID'] = $order->ID;
+        $pre = $preDao->insert( $data );
+
+        Instances::getInstance()->Session()->setVar( 'site_order', $order->ID );
+
+        return $pre;
     }
 }

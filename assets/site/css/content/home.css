@@ -211,6 +211,9 @@
     text-decoration: none;
     outline: none;
 }
+.clicker div {
+    outline: none;
+}
 #footer a.clicker {
     color: #ffffff;
 }

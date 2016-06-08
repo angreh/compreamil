@@ -36,6 +36,9 @@ function setStatusRealValue()
             case '1':
                 $(this).html('<div class="tmz-order-inc">incompleto</div>');
                 break;
+            case '4':
+                $(this).html('<div class="tmz-order-orcamento">orçamento</div>');
+                break;
             case '5':
                 $(this).html('<div class="tmz-order-sollig">Sol. Ligação</div>');
                 break;
