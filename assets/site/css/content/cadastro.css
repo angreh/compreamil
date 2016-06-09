@@ -117,3 +117,44 @@
 .tooltip strong {
     font-weight: 700;
 }
+#cadastro .pdf-titles {
+    float: left;
+    position: relative;
+    margin: 0 15px 10px 0;
+}
+#cadastro .pdf-titles div,
+#cadastro .pdf-titles img {
+    float: left;
+}
+#cadastro .pdf-titles div {
+    line-height: 52px;
+    margin-left: 20px;
+    color: #008da2;
+}
+#cadastro .wrapper-termos hr {
+    clear: both;
+    height: 1px;
+    background-color: #DBDDDD;
+    border: none;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+#cadastro p {
+    color: #00C2DE;
+}
+#cadastro .wrapper-termos .pdf-titles.small img {
+    height: 30px;
+}
+#cadastro .wrapper-termos .pdf-titles.small div {
+    line-height: 26px;
+    font-size: 0.8em;
+    margin-left: 8px;
+}
+#cadastro .form-next {
+    background-color: #ff9c00;
+    color: #fff3e0;
+    padding: 15px 20px;
+    border: none;
+    margin-top: 30px;
+    font-size: 1.3em;
+}

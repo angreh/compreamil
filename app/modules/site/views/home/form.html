@@ -1,7 +1,7 @@
 <div id="cadastro">
     <div class="container inner">
         <h1>CONTRATAR AMIL DENTAL</h1>
-        <form>
+        <form method="post" action="/cadastro">
             <div class="input-place">
                 <label for="localizacao">Localização</label>
                 <select name="localizacao" id="localizacao">
@@ -245,7 +245,56 @@
                     <label for="conf_senha">Confirme a senha:</label>
                     <input name="conf_senha" id="conf_senha" type="password">
                 </div>
+
+                <h2>Contrato</h2>
+
+                <br>
+                <p>
+                    Você precisa ler e aceitar os termos do contrato para prosseguir.
+                    <br />
+                    <br />
+                </p>
+                <div class="clearfix wrapper-termos">
+                    <a href="/assets/site/pdf/contrato.pdf" target="_blank" class="pdf-titles clearfix">
+                        <img src="/assets/site/imgs/icon_pdf.png">
+                        <div>Contrato</div>
+                    </a>
+
+                    <hr>
+
+                    <a href="/assets/site/pdf/declaracao_de_ciencia.pdf" target="_blank" class="pdf-titles clearfix small">
+                        <img src="/assets/site/imgs/icon_pdf.png">
+                        <div>Declaração de Ciência</div>
+                    </a>
+
+                    <a href="/assets/site/pdf/prc_aditivo.pdf" target="_blank" class="pdf-titles clearfix small">
+                        <img src="/assets/site/imgs/icon_pdf.png">
+                        <div>Aditivo Redução de Carência</div>
+                    </a>
+
+                    <a href="/assets/site/pdf/guia-leitura-contratual-pf.pdf" target="_blank" class="pdf-titles clearfix small">
+                        <img src="/assets/site/imgs/icon_pdf.png">
+                        <div>Guia de Leitura Contratual</div>
+                    </a>
+
+                    <a href="/assets/site/pdf/contrato-transparente.pdf" target="_blank" class="pdf-titles clearfix small">
+                        <img src="/assets/site/imgs/icon_pdf.png">
+                        <div>Contrato Transparente</div>
+                    </a>
+
+                    <a href="/assets/site/pdf/manual-contratacao-plano.pdf" target="_blank" class="pdf-titles clearfix small">
+                        <img src="/assets/site/imgs/icon_pdf.png">
+                        <div>Manual de Contratação</div>
+                    </a>
+                </div>
+
+                <div class="tmz-check-div">
+                    <input type="checkbox" id="aceito">
+                    <label for="aceito">Li e concordo com os termos do contrato</label>
+                </div>
             </div><!-- .wrapper -->
+
+            <button class="form-next">Prosseguir</button>
 
         </form>
     </div>

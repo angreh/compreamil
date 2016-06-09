@@ -59,6 +59,7 @@ class Home_Site_Controller extends Controller
                 'ESTADOS_BLOCK' => $this->getEstados(),
                 'NAME' => $order->name,
                 'EMAIL' => $order->email,
+                'ID' => ''
             )
         );
     }
