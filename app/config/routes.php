@@ -5,6 +5,7 @@ $routes = array
     //site
     ''                  => 'site/home/index',
     'cadastro'          => 'site/home/form',
+    'dependentes'       => 'site/home/dependents',
     'wizard'            => 'site/home/wizard',
     'new'               => 'site/home/newindex',
 

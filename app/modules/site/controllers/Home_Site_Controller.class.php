@@ -60,6 +60,10 @@ class Home_Site_Controller extends Controller
         }
 
         $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        if( empty($id) || $id == false )
+            Instances::getInstance()->Request()->redirect( '/' );
+
         $dao = new Order_Site_Dao();
         $order = (object) $dao->getOneWithPre( $id );
 
@@ -99,5 +103,10 @@ class Home_Site_Controller extends Controller
                 'ESTADOS_BLOCK' => $this->getEstados(),
             )
         );
+    }
+
+    public function dependents()
+    {
+        View::make('home.dependents');
     }
 }
