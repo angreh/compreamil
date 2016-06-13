@@ -49,6 +49,16 @@ class Home_Site_Controller extends Controller
             $model->preFormPersist($data);
         }
 
+        if( isset($_POST['form']) && !empty($_POST['form']) )
+        {
+            $formType = $_POST['form'];
+            switch ($formType) {
+                case 'fullform':
+                    $this->persistFullForm($_POST);
+                    break;
+            }
+        }
+
         $id = Instances::getInstance()->Session()->getVar('site_order');
         $dao = new Order_Site_Dao();
         $order = (object) $dao->getOneWithPre( $id );
@@ -75,10 +85,19 @@ class Home_Site_Controller extends Controller
         );
     }
 
-
     private function getEstados()
     {
         $estadosModel = new Estados_Site_Model();
         return $estadosModel->getAll('id_estado,nome');
+    }
+
+    private function persistFullForm($data)
+    {
+        View::make(
+            'home.form',
+            array(
+                'ESTADOS_BLOCK' => $this->getEstados(),
+            )
+        );
     }
 }
