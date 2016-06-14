@@ -4,7 +4,7 @@ class Dao
 {
     public $bo;
 
-    public function insert($data)
+    public function insert($data, $debug = false)
     {
         $columnsArr = $valuesArr = array();
 
@@ -22,7 +22,7 @@ class Dao
             array
             (
                 'sql' => "INSERT INTO " .$this->bo->table . " ($columns) VALUES ($values)",
-                'debug' => false
+                'debug' => $debug
             )
         );
 

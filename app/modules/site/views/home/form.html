@@ -45,8 +45,8 @@
                     <label for="sexo">Sexo:</label>
                     <select name="sexo" id="sexo">
                         <option disabled="disabled" selected="selected">Selecione</option>
-                        <option>Masculino</option>
-                        <option>Feminino</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
                     </select>
                 </div>
 
@@ -54,12 +54,12 @@
                     <label for="estadoCivil">Estado Civil:</label>
                     <select name="estadoCivil" id="estadoCivil">
                         <option disabled="disabled" selected="selected">Selecione</option>
-                        <option>Casado(a)</option>
-                        <option>Divorciado(a)</option>
-                        <option>Outros</option>
-                        <option>Separado(a)</option>
-                        <option>Solteiro(a)</option>
-                        <option>Viuvo(a)</option>
+                        <option value="1">Casado(a)</option>
+                        <option value="2">Divorciado(a)</option>
+                        <option value="3">Outros</option>
+                        <option value="4">Separado(a)</option>
+                        <option value="5">Solteiro(a)</option>
+                        <option value="6">Viuvo(a)</option>
                     </select>
                 </div>
 
@@ -165,8 +165,8 @@
                         <label for="resp_sexo">Sexo:</label>
                         <select name="resp_sexo" id="resp_sexo">
                             <option disabled="disabled" selected="selected">Selecione</option>
-                            <option>Masculino</option>
-                            <option>Feminino</option>
+                            <option value="1">Masculino</option>
+                            <option value="2">Feminino</option>
                         </select>
                     </div>
 
@@ -174,12 +174,12 @@
                         <label for="resp_estadoCivil">Estado Civil:</label>
                         <select name="resp_estadoCivil" id="resp_estadoCivil">
                             <option disabled="disabled" selected="selected">Selecione</option>
-                            <option>Casado(a)</option>
-                            <option>Divorciado(a)</option>
-                            <option>Outros</option>
-                            <option>Separado(a)</option>
-                            <option>Solteiro(a)</option>
-                            <option>Viuvo(a)</option>
+                            <option value="1">Casado(a)</option>
+                            <option value="2">Divorciado(a)</option>
+                            <option value="3">Outros</option>
+                            <option value="4">Separado(a)</option>
+                            <option value="5">Solteiro(a)</option>
+                            <option value="6">Viuvo(a)</option>
                         </select>
                     </div>
 
@@ -192,16 +192,16 @@
                         <label for="resp_grauParentesco">Grau de parentesco:</label>
                         <select name="resp_grauParentesco" id="resp_grauParentesco">
                             <option disabled="disabled" selected="selected">Selecione</option>
-                            <option>Cônjuge</option>
-                            <option>Filho(a)</option>
-                            <option>Irmão/Irmã</option>
-                            <option>Outros</option>
-                            <option>Pai/Mãe</option>
-                            <option>Sogro(a)</option>
+                            <option value="1">Cônjuge</option>
+                            <option value="2">Filho(a)</option>
+                            <option value="3">Irmão/Irmã</option>
+                            <option value="4">Outros</option>
+                            <option value="5">Pai/Mãe</option>
+                            <option value="6">Sogro(a)</option>
                         </select>
                     </div>
 
-                </div>
+                </div><!-- .wrapper-responsavel -->
 
                 <h2>Busca da rede credenciada</h2>
 
@@ -210,7 +210,7 @@
                     <br>
                     <ul class="busca-rede-ul">
                         <li>
-                            <input type="radio" name="busca_rede" id="buscaRedeOn">
+                            <input type="radio" name="busca_rede" id="buscaRedeOn" value="1">
                             <label for="buscaRedeOn">Online</label>
                             <img
                                 src="/assets/site/imgs/icon_help.png"
@@ -221,7 +221,7 @@
                         </li>
 
                         <li>
-                            <input type="radio" name="busca_rede" id="buscaRedeOff">
+                            <input type="radio" name="busca_rede" id="buscaRedeOff" value="2">
                             <label for="buscaRedeOn">Offline</label>
                             <img
                                 src="/assets/site/imgs/icon_help.png"
@@ -234,17 +234,17 @@
                 </div>
                 <br>
 
-                <h2>Senha</h2>
+                <!--<h2>Senha</h2>-->
 
-                <div class="input-place">
-                    <label for="senha">Senha:</label>
-                    <input name="senha" id="senha" type="password">
-                </div>
+                <!--<div class="input-place">-->
+                    <!--<label for="senha">Senha:</label>-->
+                    <!--<input name="senha" id="senha" type="password">-->
+                <!--</div>-->
 
-                <div class="input-place">
-                    <label for="conf_senha">Confirme a senha:</label>
-                    <input name="conf_senha" id="conf_senha" type="password">
-                </div>
+                <!--<div class="input-place">-->
+                    <!--<label for="conf_senha">Confirme a senha:</label>-->
+                    <!--<input name="conf_senha" id="conf_senha" type="password">-->
+                <!--</div>-->
 
                 <h2>Contrato</h2>
 
@@ -291,7 +291,7 @@
                 <input type="hidden" name="form" value="fullform">
 
                 <div class="tmz-check-div">
-                    <input type="checkbox" id="aceito" name="aceito">
+                    <input type="checkbox" id="aceito" name="aceito" value="1">
                     <label for="aceito">Li e concordo com os termos do contrato</label>
                 </div>
             </div><!-- .wrapper -->

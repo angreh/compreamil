@@ -9,7 +9,6 @@ class Detalhes_Site_Bo
     public $map;
 
     public $onlineOffline;
-    public $senha;
     public $aceito;
 
     public $orderID;
@@ -21,7 +20,6 @@ class Detalhes_Site_Bo
             'ID' => 'ef_id',
 
             'onlineOffline' => 'ef_ce',
-            'senha' => 'ef_ps',
             'aceito' => 'ef_ac',
 
             'orderID' => 'ef_qf_id',

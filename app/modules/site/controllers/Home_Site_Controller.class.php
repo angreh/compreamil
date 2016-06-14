@@ -14,47 +14,18 @@ class Home_Site_Controller extends Controller
 
     public function form()
     {
-        if( isset( $_POST['name'] ) )
-        {
-            $fail = false;
-            if( !Instances::getInstance()->Validator()->null($_POST['name']) )
-            {
-                $fail = true;
-                Instances::getInstance()->Alerts()->error('Nome inválido');
-            }
-
-            if( !Instances::getInstance()->Validator()->email($_POST['email']) )
-            {
-                $fail = true;
-                Instances::getInstance()->Alerts()->error('Email inválido.');
-            }
-
-            if( !Instances::getInstance()->Validator()->phone($_POST['telefone']) )
-            {
-                $fail = true;
-                Instances::getInstance()->Alerts()->error('Telefone inválido.');
-            }
-
-            if( $fail )
-                Instances::getInstance()->Request()->redirect( '/' );
-
-            $model = new Form_Site_Model();
-
-            $data = array(
-                'name'      => $_POST['name'],
-                'email'     => $_POST['email'],
-                'telephone'  => $_POST['telefone']
-            );
-
-            $model->preFormPersist($data);
-        }
+        //exit(var_dump($_POST));
 
         if( isset($_POST['form']) && !empty($_POST['form']) )
         {
             $formType = $_POST['form'];
+            unset($_POST['form']);
             switch ($formType) {
                 case 'fullform':
                     $this->persistFullForm($_POST);
+                    break;
+                case 'pre':
+                    $this->persistPreForm($_POST);
                     break;
             }
         }
@@ -97,16 +68,145 @@ class Home_Site_Controller extends Controller
 
     private function persistFullForm($data)
     {
-        View::make(
-            'home.form',
-            array(
-                'ESTADOS_BLOCK' => $this->getEstados(),
-            )
-        );
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        $dataResp['orderID'] = $id;
+        $dataResp['cpf'] = $data['cpf'];
+        $dataResp['rg'] = $data['rg'] . ' ' . $data['emissor'];
+        $dataResp['nascimento'] = $data['dataNascimento'];
+        $dataResp['sexo'] = $data['sexo'];
+        $dataResp['estadoCivil'] = $data['estadoCivil'];
+        $dataResp['telRes'] = $data['telefoneResidencial'];
+        $dataResp['telCel'] = $data['telefoneCelular'];
+        $dataResp['mae'] = $data['nomeMae'];
+
+        $titularDao = new Titular_Site_Dao();
+        $titular = $titularDao->insert($dataResp);
+
+        $dataEnd['logradouro'] = $data['logradouro'];
+        $dataEnd['numero'] = $data['numero'];
+        $dataEnd['complemento'] = $data['complemento'];
+        $dataEnd['bairro'] = $data['bairro'];
+        $dataEnd['cidade'] = $data['cidade'];
+        $dataEnd['estado'] = $data['estado'];
+        $dataEnd['cep'] = $data['cep'];
+        $dataEnd['orderID'] = $id;
+
+        $endDao = new End_Site_Dao();
+        $endereco = $endDao->insert($dataEnd);
+
+        $dataDetails['onlineOffline'] = $data['busca_rede'];
+        $dataDetails['aceito'] = $data['aceito'];
+        $dataDetails['orderID'] = $id;
+
+        $detalhesDao = new Detalhes_Site_Dao();
+        $detalhes = $detalhesDao->insert($dataDetails);
+
+        Instances::getInstance()->Request()->redirect( '/dependentes' );
+    }
+
+    private function persistPreForm($data)
+    {
+        if( isset( $data['name'] ) )
+        {
+            $fail = false;
+            if (!Instances::getInstance()->Validator()->null($data['name'])) {
+                $fail = true;
+                Instances::getInstance()->Alerts()->error('Nome inválido');
+            }
+
+            if (!Instances::getInstance()->Validator()->email($data['email'])) {
+                $fail = true;
+                Instances::getInstance()->Alerts()->error('Email inválido.');
+            }
+
+            if (!Instances::getInstance()->Validator()->phone($data['telephone'])) {
+                $fail = true;
+                Instances::getInstance()->Alerts()->error('Telefone inválido.');
+            }
+
+            if ($fail)
+                Instances::getInstance()->Request()->redirect('/');
+        }
+
+        $model = new Form_Site_Model();
+        $model->preFormPersist($data);
     }
 
     public function dependents()
     {
-        View::make('home.dependents');
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        if( isset($_POST['nome']) && !empty($_POST['nome']) )
+        {
+            $_POST['orderID'] = $id;
+            $this->addDependent($_POST);
+        }
+
+        $model = new Order_Site_Model();
+        $titular = $model->getMainName($id);
+
+        $dependentes = $model->getDependentsNames(14);
+
+        $vars = array(
+            'TITULAR_NOME' => $titular
+        );
+
+        $people = 1;
+        if( $dependentes != false )
+        {
+            $vars['BLOCK_DEPENDENTES'] = $dependentes;
+            $people += sizeof($dependentes);
+        }
+
+        $pagValues = $model->getMainValues($people);
+
+        $vars['CARTAO'] = number_format($pagValues['CARD'],2,',','.');
+        $vars['BOL'] = number_format($pagValues['SLIP_M'],2,',','.');
+        $vars['BOLANUAL'] = number_format($pagValues['SLIP_Y'],2,',','.');
+
+        View::make(
+            'home.dependents',
+            $vars
+        );
+    }
+
+    public function addDependent($data)
+    {
+        $dataInsert['nome'] = $data['nome'];
+        $dataInsert['cpf'] = $data['cpf'];
+        $dataInsert['nascimento'] = $data['dataNascimento'];
+        $dataInsert['sexo'] = $data['sexo'];
+        $dataInsert['parentesco'] = $data['parentensco'];
+        $dataInsert['mae'] = $data['nomeMae'];
+        $dataInsert['estadoCivil'] = $data['estadoCivil'];
+        $dataInsert['orderID'] = $data['orderID'];
+
+        $depDao = new Dependentes_Site_Dao();
+        $dependete = $depDao->insert($dataInsert);
+    }
+
+    public function depremove()
+    {
+        $id = Instances::getInstance()->Request()->getDataValue('id');
+
+        $dao = new Dependentes_Site_Dao();
+        $dao->remove($id);
+
+        Instances::getInstance()->Request()->redirect( '/dependentes' );
+    }
+
+    public function hire()
+    {
+        $model = new Order_Site_Model();
+        $values = $model->getAllPagValues();
+
+
+        View::make('home.contratar',$values);
+    }
+
+    public function success()
+    {
+        View::make('home.success');
     }
 }

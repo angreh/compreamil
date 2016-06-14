@@ -1,0 +1,120 @@
+<div id="cadastro">
+    <div class="container inner">
+
+        <form method="post" action="/contratar">
+
+            <h2 id="tmz-title-pag-fck">Forma de Pagamento</h2>
+
+            <div class="tmz-pag2-wrapper clearfix">
+
+                <div class="tmz-cartao">
+
+                    <div class="tmz-title">
+
+                        <span>Cartão de crédito</span>
+                        <img src="/assets/site/imgs/icon_card.png">
+
+                    </div>
+
+                    <ul class="tmz-list-par">
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card1" checked="checked">À vista</div>
+                            <div class="tmz-preco">R$ {card1x}</div>
+                        </li>
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card2">2x</div>
+                            <div class="tmz-preco">R$ {card2x}</div>
+                        </li>
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card3">3x</div>
+                            <div class="tmz-preco">R$ {card3x}</div>
+                        </li>
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card4">4x</div>
+                            <div class="tmz-preco">R$ {card4x}</div>
+                        </li>
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card6">6x</div>
+                            <div class="tmz-preco">R$ {card6x}</div>
+                        </li>
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card12">12x</div>
+                            <div class="tmz-preco">R$ {card12x}</div>
+                        </li>
+
+                    </ul>
+
+                </div><!-- .tmz-cartao -->
+
+                <div class="tmz-boleto">
+
+                    <div class="tmz-title">
+
+                        <span>Boleto bancário</span>
+                        <img src="/assets/site/imgs/icon_slip.png">
+
+                    </div>
+
+                    <ul class="tmz-list-par">
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="slip1">À vista</div>
+                            <div class="tmz-preco">R$ {slipYear}</div>
+                        </li>
+
+                        <li>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="slip12">12x</div>
+                            <div class="tmz-preco">R$ {slip}</div>
+                        </li>
+
+                    </ul>
+
+                </div><!-- .tmz-boleto -->
+
+            </div><!-- .tmz-pag2-wrapper -->
+
+            <div class="tmz-wrapper-cartao clearfix">
+
+                <h2>Dados do Cartão</h2>
+
+                <div class="tmz-input-container">
+                    <label>Escolha a bandeira</label>
+                    <ul class="tmz-pick-band">
+                        <li><input type="radio" name="tmz-bandeira">VISA</li>
+                        <li><input type="radio" name="tmz-bandeira">MASTERCARD</li>
+                    </ul>
+                </div>
+
+                <div class="tmz-input-container large">
+                    <label for="name">Nome</label>
+                    <input type="text" id="name">
+                </div>
+
+                <div class="tmz-input-container medium">
+                    <label for="numCart">Número do cartão</label>
+                    <input type="text" id="numCart">
+                </div>
+
+                <div class="tmz-input-container tiny">
+                    <label for="cod">Código</label>
+                    <input type="text" id="cod">
+                </div>
+
+                <div class="tmz-input-container medium">
+                    <label for="validade">Validade</label>
+                    <input type="text" id="validade">
+                </div>
+
+            </div><!-- .tmz-wrapper-cartao -->
+
+            <button class="form-next" type="submit" id="tmz-form-pag-actions">Prosseguir</button>
+
+        </form>
+    </div>
+</div>

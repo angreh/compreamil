@@ -31,6 +31,10 @@ $(function()
     {
         $('#telefone').mask( SPMaskBehavior, spOptions );
     }
+
+    if( $( '#dep-add').length ) enableDepButtons();
+
+    if( $( '.tmz-list-par').length ) enableContratar();
 });
 
 $.fn.centerH = function()
@@ -102,4 +106,75 @@ function orcSubmit(){
             $( '.tmz-infos').html(data);
         }
     });
+}
+
+function enableDepButtons()
+{
+    $( '#dep-add').on('click', function(){
+        $( '.tmz-dependents-list').slideUp();
+        $( 'button.form-next').slideUp();
+        $( '.tmz-dependent-data').slideDown();
+    });
+
+    $( '.tmz-include-button-cancel').on('click',function(){
+        $( '.tmz-dependents-list').slideDown();
+        $( 'button.form-next').slideDown();
+        $( '.tmz-dependent-data').slideUp();
+
+    });
+
+}
+
+var showingCardData = false;
+
+function enableContratar()
+{
+    $( '.tmz-list-par li').on(
+        'click',
+        function()
+        {
+            $( 'input', this ).prop('checked', true);
+        }
+    );
+
+    $( '.tmz-pick-band li').on(
+        'click',
+        function()
+        {
+            $( 'input', this).prop('checked', true);
+        }
+    );
+
+    $( '#tmz-form-pag-actions').on(
+        'click',
+        function()
+        {
+            if(showingCardData) return true;
+
+            var radioValue = $( 'input[name=tmz-form-pag]:checked').val();
+
+            if(radioValue == undefined)
+            {
+                alert('Você precisa escolher um forma de pagamento!');
+                return false;
+            }
+            else
+            {
+                radioValue = radioValue.substring(0,4);
+
+                if(radioValue == 'card')
+                {
+                    $( '.tmz-pag2-wrapper').slideUp();
+                    $( '#tmz-title-pag-fck').slideUp();
+                    $( '.tmz-wrapper-cartao').slideDown();
+                    showingCardData = true;
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+        }
+    );
 }

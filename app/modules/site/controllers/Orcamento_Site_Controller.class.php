@@ -110,4 +110,5 @@ class Orcamento_Site_Controller extends Controller
             'PLAN_DETAIL' => ($people>1)?'FAMÍLIA':'INDIVIDUAL'
         ), false);
     }
+
 }

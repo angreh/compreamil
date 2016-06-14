@@ -1,71 +1,142 @@
 <div id="cadastro">
     <div class="container inner">
 
+        <div class="tmz-dependents-list">
             <h2>Beneficiários cadastrados</h2>
 
             <div class="titular-wrapper">
-                <div class="name">João Perdido</div>
+                <div class="name">{TITULAR_NOME}</div>
                 <div class="titulo">Titular</div>
             </div>
 
+            <!-- BEGIN BLOCK_DEPENDENTES -->
             <div class="dependente-wrapper">
-                <div class="name">Filho Mais Perdido do João</div>
+                <div class="name">{NOME} <a href="/dependentes/rem/{DEPENDENTEID}">( REMOVER )</a> </div>
                 <div class="titulo">Dependente</div>
             </div>
+            <!-- END BLOCK_DEPENDENTES -->
+            <!-- FINALLY BLOCK_DEPENDENTES -->
 
-            <div class="dependente-wrapper">
-                <div class="name">Filho Mais Perdido do João</div>
-                <div class="titulo">Dependente</div>
+            <button class="tmz-include-button" id="dep-add">Incluir dependente</button>
+
+        </div><!-- .tmz-dependents-list -->
+
+        <div class="tmz-dependent-data">
+
+            <form method="post" action="/dependentes">
+                <h2>Dados do dependente</h2>
+
+                <div class="input-place">
+                    <label for="nome">Nome completo:</label>
+                    <input name="nome" id="nome" type="text" class="large" value="{NAME}">
+                </div>
+
+                <div class="input-place">
+                    <label for="cpf">CPF.:</label>
+                    <input name="cpf" id="cpf" type="text"><span class="input-obs"> É obrigatório CPF próprio mesmo para menores de 18 anos.</span>
+                </div>
+
+                <div class="input-place">
+                    <label for="dataNascimento">Data de nascimento:</label>
+                    <input name="dataNascimento" id="dataNascimento" type="text"> <span class="input-obs">( dd/mm/aaaa )</span>
+                </div>
+
+                <div class="input-place">
+                    <label for="sexo">Sexo:</label>
+                    <select name="sexo" id="sexo">
+                        <option disabled="disabled" selected="selected">Selecione</option>
+                        <option value="1">Masculino</option>
+                        <option value="2">Feminino</option>
+                    </select>
+                </div>
+
+                <div class="input-place">
+                    <label for="parentensco">Grau de parentesco:</label>
+                    <select name="parentensco" id="parentensco">
+                        <option disabled="disabled" selected="selected">Selecione</option>
+                        <option value="1">Cônjuge</option>
+                        <option value="2">Filho(a)</option>
+                        <option value="3">Irmão/Irmã</option>
+                        <option value="4">Outros</option>
+                        <option value="5">Pai/Mãe</option>
+                        <option value="6">Sogro(a)</option>
+                    </select>
+                </div>
+
+                <div class="input-place">
+                    <label for="estadoCivil">Estado Civil:</label>
+                    <select name="estadoCivil" id="estadoCivil">
+                        <option disabled="disabled" selected="selected">Selecione</option>
+                        <option value="1">Casado(a)</option>
+                        <option value="2">Divorciado(a)</option>
+                        <option value="3">Outros</option>
+                        <option value="4">Separado(a)</option>
+                        <option value="5">Solteiro(a)</option>
+                        <option value="6">Viuvo(a)</option>
+                    </select>
+                </div>
+
+                <div class="input-place">
+                    <label for="email">Email:</label>
+                    <input name="email" id="email" type="text" class="large" value="{EMAIL}">
+                </div>
+
+                <div class="input-place">
+                    <label for="nomeMae">Nome da mãe:</label>
+                    <input name="nomeMae" id="nomeMae" type="text" class="large">
+                </div>
+
+                <button class="tmz-include-button-cancel">cancelar</button>
+                <button type="submit" class="tmz-include-button">Confirmar dados do Dependente</button>
+            </form>
+
+        </div><!-- .tmz-dependent-data -->
+
+        <div class="tmz-precos-parcelas clearfix">
+
+            <div class="tmz-dependetes">
+                <div class="tmz-dep-qtd">
+                    01
+                </div>
+                <div class="titulo">
+                    Beneficiário(s)<br>
+                    Cadastrados
+                </div>
             </div>
 
-            <button class="tmz-include-button">Incluir dependente</button>
-
-            <div class="tmz-precos-parcelas clearfix">
-
-                <div class="tmz-dependetes">
-                    <div class="tmz-dep-qtd">
-                        01
-                    </div>
-                    <div class="titulo">
-                        Beneficiário(s)<br>
-                        Cadastrados
-                    </div>
+            <div class="tmz-dependetes">
+                <div class="icon">
+                    <img src="/assets/site/imgs/icon_card.png">
                 </div>
-
-                <div class="tmz-dependetes">
-                    <div class="icon">
-                        <img src="/assets/site/imgs/icon_card.png">
-                    </div>
-                    <div class="tmz-pag-prices">
-                        12x de R$ 45,50<br>
-                        <span class="tmz-tipo-pag">no cartão de crédito</span>
-                    </div>
+                <div class="tmz-pag-prices">
+                    12x de R$ {CARTAO}<br>
+                    <span class="tmz-tipo-pag">no cartão de crédito</span>
                 </div>
-
-                <div class="tmz-dependetes">
-                    <div class="icon">
-                        <img src="/assets/site/imgs/icon_slip.png">
-                    </div>
-                    <div class="tmz-pag-prices">
-                        <br>
-                        <span class="tmz-tipo-pag">no boleto mensal</span>
-                    </div>
-                </div>
-
-                <div class="tmz-dependetes">
-                    <div class="icon">
-                        <img src="/assets/site/imgs/icon_slip.png">
-                    </div>
-                    <div class="tmz-pag-prices">
-                        <br>
-                        <span class="tmz-tipo-pag">no boleto anual</span>
-                    </div>
-                </div>
-
             </div>
 
-            <button class="form-next">Prosseguir</button>
+            <div class="tmz-dependetes">
+                <div class="icon">
+                    <img src="/assets/site/imgs/icon_slip.png">
+                </div>
+                <div class="tmz-pag-prices">
+                    12x de R$ {BOL}<br>
+                    <span class="tmz-tipo-pag">no boleto mensal</span>
+                </div>
+            </div>
 
-        </form>
+            <div class="tmz-dependetes">
+                <div class="icon">
+                    <img src="/assets/site/imgs/icon_slip.png">
+                </div>
+                <div class="tmz-pag-prices">
+                    À vista R$ {BOLANUAL}<br>
+                    <span class="tmz-tipo-pag">no boleto anual</span>
+                </div>
+            </div>
+
+        </div><!-- .tmz-precos-parcelas -->
+
+        <button class="form-next" onclick="window.location.href = '/contratar'">Prosseguir</button>
+
     </div>
 </div>

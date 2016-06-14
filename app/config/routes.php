@@ -3,11 +3,14 @@
 $routes = array
 (
     //site
-    ''                  => 'site/home/index',
-    'cadastro'          => 'site/home/form',
-    'dependentes'       => 'site/home/dependents',
-    'wizard'            => 'site/home/wizard',
-    'new'               => 'site/home/newindex',
+    ''                      => 'site/home/index',
+    'cadastro'              => 'site/home/form',
+    'dependentes'           => 'site/home/dependents',
+    'dependentes/rem/{id}'  => 'site/home/depremove',
+    'contratar'             => 'site/home/hire',
+    'sucesso'               => 'site/home/success',
+    'wizard'                => 'site/home/wizard',
+    'new'                   => 'site/home/newindex',
 
     'orcamento'         => 'site/orcamento/index',
     'orcamento/calc'         => 'site/orcamento/calc',
