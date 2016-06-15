@@ -10,7 +10,6 @@ class Responsavel_Site_Bo
 
     public $nome;
     public $cpf;
-    public $rg;
     public $nascimento;
     public $sexo;
     public $estadoCivil;
@@ -26,7 +25,6 @@ class Responsavel_Site_Bo
             'ID' => 'sg_id',
             'nome' => 'sg_nm',
             'cpf' => 'sg_cp',
-            'rg' => 'sg_rg',
             'nascimento' => 'sg_dn',
             'sexo' => 'sg_sx',
             'estadoCivil' => 'sg_ec',

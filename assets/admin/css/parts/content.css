@@ -6,6 +6,7 @@ main > .container {
 }
 .tmz-order-sollig,
 .tmz-order-orcamento,
+.tmz-order-comp,
 .tmz-order-inc {
     padding: 2px 8px;
     color: #ffffff;
@@ -20,6 +21,13 @@ main > .container {
 }
 .tmz-order-orcamento {
     background-color: #008da2;
+}
+.tmz-order-comp
+{
+    background-color: #598900;
+}
+.tmz-order-row {
+    cursor: pointer;
 }
 .header {
     font-weight: 200;

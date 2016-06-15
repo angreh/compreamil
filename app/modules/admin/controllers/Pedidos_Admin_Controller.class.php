@@ -16,4 +16,14 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
             )
         );
     }
+
+    public function show()
+    {
+        View::make(
+            'pedidos.show',
+            array(
+                'PAGE_TITLE' => "Pedidos"
+            )
+        );
+    }
 }

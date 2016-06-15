@@ -35,6 +35,7 @@ $routes = array
 
     //pedidos
     'adm/pedidos'       => 'admin/pedidos/index',
+    'adm/pedido/{id}'   => 'admin/pedidos/show',
 
     //usuários
     'adm/usuarios'              => 'admin/users/index',

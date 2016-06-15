@@ -8,16 +8,10 @@ class Order_Site_Bo
 
     public $map;
 
-    // mh
     public $method;
-
-    // st
     public $status;
-
-    // lc
     public $location;
 
-    // vi
     public $userID;
 
     public function __construct()

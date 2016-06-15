@@ -70,6 +70,7 @@ class Home_Site_Controller extends Controller
     {
         $id = Instances::getInstance()->Session()->getVar('site_order');
 
+        /* titular */
         $dataResp['orderID'] = $id;
         $dataResp['cpf'] = $data['cpf'];
         $dataResp['rg'] = $data['rg'] . ' ' . $data['emissor'];
@@ -83,6 +84,7 @@ class Home_Site_Controller extends Controller
         $titularDao = new Titular_Site_Dao();
         $titular = $titularDao->insert($dataResp);
 
+        /* endereço */
         $dataEnd['logradouro'] = $data['logradouro'];
         $dataEnd['numero'] = $data['numero'];
         $dataEnd['complemento'] = $data['complemento'];
@@ -95,6 +97,22 @@ class Home_Site_Controller extends Controller
         $endDao = new End_Site_Dao();
         $endereco = $endDao->insert($dataEnd);
 
+        /* responsavel financeiro */
+        if($data['responsavel'] == 'false') {
+            $dataRespFin['nome'] = $data['resp_nome'];
+            $dataRespFin['cpf'] = $data['resp_cpf'];
+            $dataRespFin['nascimento'] = $data['resp_dataNascimento'];
+            $dataRespFin['sexo'] = $data['resp_sexo'];
+            $dataRespFin['estadoCivil'] = $data['resp_estadoCivil'];
+            $dataRespFin['email'] = $data['resp_email'];
+            $dataRespFin['parentesco'] = $data['resp_grauParentesco'];
+            $dataRespFin['orderID'] = $id;
+
+            $finDao = new Responsavel_Site_Dao();
+            $fin = $finDao->insert($dataRespFin);
+        }
+
+        /* detalhes */
         $dataDetails['onlineOffline'] = $data['busca_rede'];
         $dataDetails['aceito'] = $data['aceito'];
         $dataDetails['orderID'] = $id;
@@ -146,7 +164,7 @@ class Home_Site_Controller extends Controller
         $model = new Order_Site_Model();
         $titular = $model->getMainName($id);
 
-        $dependentes = $model->getDependentsNames(14);
+        $dependentes = $model->getDependentsNames($id);
 
         $vars = array(
             'TITULAR_NOME' => $titular
@@ -198,15 +216,40 @@ class Home_Site_Controller extends Controller
 
     public function hire()
     {
+        if( isset( $_POST['tmz-form-pag'] ) && !empty( $_POST['tmz-form-pag'] ) )
+        {
+            $model = new Order_Site_Model();
+
+            $method = substr($_POST['tmz-form-pag'],0,4);
+            $parc = substr($_POST['tmz-form-pag'],4);
+
+            if( $method == 'slip' )
+            {
+                $model->persistSlip( $parc );
+            }
+            else //insere os dados do cartão
+            {
+                $model->persistCard( $_POST );
+            }
+        }
+
         $model = new Order_Site_Model();
         $values = $model->getAllPagValues();
-
 
         View::make('home.contratar',$values);
     }
 
     public function success()
     {
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        $alterData = array(
+            'ID' => $id,
+            'status' => 3
+        );
+
+        $orderDao = new Order_Site_Dao();
+        $orderDao->alterOne($alterData);
         View::make('home.success');
     }
 }

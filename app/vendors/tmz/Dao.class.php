@@ -120,7 +120,7 @@ class Dao
 
     }
 
-    public function alterOne($data)
+    public function alterOne($data, $debug = false)
     {
         $id = $data['ID'];
         unset( $data['ID'] );
@@ -141,7 +141,7 @@ class Dao
 
         $result = Instances::getInstance()->Database()->query(array(
             'sql'   => "UPDATE " . $this->bo->table . " SET $fields WHERE " . $this->bo->map['ID'] . '=' . $id,
-            'debug' => false
+            'debug' => $debug
         ));
     }
 

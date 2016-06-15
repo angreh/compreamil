@@ -105,4 +105,65 @@ class Order_Site_Model
             'slipYear' => $year
         );
     }
+
+    public function persistSlip($parc)
+    {
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        /* pagamento */
+        $dataPersist = array(
+            'slipOrCard' => 2,
+            'orderID' => $id
+        );
+
+        $pagDao = new Pag_Site_Dao();
+        $pag = $pagDao->insert($dataPersist);
+        $pagID = $pag->ID;
+
+        /* boleto */
+        $sec = Instances::getInstance()->Security()->getInstance();
+
+        $dataPersist = array(
+            'parcelas' => $sec->encrypt( ($parc==1)?2:1 ),
+            'pagID' => $sec->encrypt($pagID)
+        );
+
+        $bolDao = new Slip_Site_Dao();
+        $bolDao->insert($dataPersist,false);
+
+        Instances::getInstance()->Request()->redirect( '/sucesso' );
+    }
+
+    public function persistCard($data)
+    {
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        /* pagamento */
+        $dataPersist = array(
+            'slipOrCard' => 1,
+            'orderID' => $id
+        );
+
+        $pagDao = new Pag_Site_Dao();
+        $pag = $pagDao->insert($dataPersist);
+        $pagID = $pag->ID;
+
+        /* cartao */
+        $sec = Instances::getInstance()->Security()->getInstance();
+
+        $dataPersist = array(
+            'parcelas' => $sec->encrypt(substr($data['tmz-form-pag'],4)),
+            'bandeira' => $sec->encrypt($data['tmz-bandeira']),
+            'nome' => $sec->encrypt($data['name']),
+            'numero' => $sec->encrypt($data['numCart']),
+            'codigo' => $sec->encrypt($data['cod']),
+            'validade' => $sec->encrypt($data['validade']),
+            'pagID' => $sec->encrypt($pagID)
+        );
+
+        $cardDao = new Card_Site_Dao();
+        $cardDao->insert($dataPersist);
+
+        Instances::getInstance()->Request()->redirect( '/sucesso' );
+    }
 }

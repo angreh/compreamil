@@ -70,6 +70,14 @@ class Instances {
     }
 
     /**
+     * @return Security
+     */
+    public function Security()
+    {
+        return $this->_getHelperInstance(__FUNCTION__);
+    }
+
+    /**
      * @return Session
      */
     public function Session()
@@ -107,18 +115,6 @@ class Instances {
      * @return Validator
      */
     public function Validator() {
-        return $this->_getHelperInstance(__FUNCTION__);
-    }
-
-
-    /**
-     * Retorna uma instência de Security, para mais informações olhar o método
-     * _getHelperInstance. Para mais informações sobre a classe Security olhar
-     * a classe em helpers/Security.class.php
-     *
-     * @return Security
-     */
-    public function Security() {
         return $this->_getHelperInstance(__FUNCTION__);
     }
 
