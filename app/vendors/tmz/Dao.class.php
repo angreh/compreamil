@@ -32,7 +32,7 @@ class Dao
         return $bo;
     }
 
-    public function get($data)
+    public function get($data,$debug = false)
     {
         //exit(var_dump($data));
         if( is_array($data) )
@@ -46,13 +46,15 @@ class Dao
             }
 
             $result = Instances::getInstance()->Database()->query( array(
-                'sql' => "SELECT * FROM " . $this->bo->table . " WHERE " . implode( ' AND ', $where )
+                'sql' => "SELECT * FROM " . $this->bo->table . " WHERE " . implode( ' AND ', $where ),
+                'debug' => $debug
             ));
         }
         else // $data nessa caso é referente ao ID
         {
             $result = Instances::getInstance()->Database()->query( array(
-                'sql' => "SELECT * FROM " . $this->bo->table . " WHERE " . $this->bo->map['ID'] . "=" . $data
+                'sql' => "SELECT * FROM " . $this->bo->table . " WHERE " . $this->bo->map['ID'] . "=" . $data,
+                'debug' => $debug
             ));
         }
 
