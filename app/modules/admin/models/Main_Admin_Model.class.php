@@ -39,6 +39,7 @@ class Main_Admin_Model
     {
         $dao = new Pre_Site_Dao();
         $data = $dao->get( array( 'orderID' => $id ) );
+        $data = $data[0];
 
         $dataArr = array();
 

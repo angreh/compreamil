@@ -118,6 +118,22 @@ class DataTransform_Admin_Helper
         return $val;
     }
 
+    public function transformBusca( $data )
+    {
+        $val = false;
+        switch($data)
+        {
+            case 1:
+                $val = 'Online';
+                break;
+            case 2:
+                $val = 'Offline';
+                break;
+        }
+
+        return $val;
+    }
+
     public function boToArray( $obj )
     {
         $arr = array();

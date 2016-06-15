@@ -49,6 +49,30 @@ class Dao
                 'sql' => "SELECT * FROM " . $this->bo->table . " WHERE " . implode( ' AND ', $where ),
                 'debug' => $debug
             ));
+
+            $numRows = Instances::getInstance()->Database()->num_rows($result);
+            if($numRows < 1) return false;
+
+            $inverseMap = array_flip($this->bo->map);
+            $class = get_class($this->bo);
+            $list = array();
+
+            while($row = Instances::getInstance()->Database()->fetch($result))
+            {
+                if( is_array($row) )
+                {
+                    $bo = new $class();
+
+                    foreach ( $row as $field => $value )
+                    {
+                        $bo->{$inverseMap[$field]} = $value;
+                    }
+                }
+
+                $list[] = $bo;
+            }
+
+            return $list;
         }
         else // $data nessa caso é referente ao ID
         {
@@ -56,20 +80,21 @@ class Dao
                 'sql' => "SELECT * FROM " . $this->bo->table . " WHERE " . $this->bo->map['ID'] . "=" . $data,
                 'debug' => $debug
             ));
-        }
 
-        $inverseMap = array_flip($this->bo->map);
-        $classArr = Instances::getInstance()->Database()->fetch($result);
+            $inverseMap = array_flip($this->bo->map);
+            $classArr = Instances::getInstance()->Database()->fetch($result);
 
-        if( is_array($classArr) )
-        {
-            foreach ( $classArr as $field => $value )
+            if( is_array($classArr) )
             {
-                $this->bo->{$inverseMap[$field]} = $value;
+                foreach ( $classArr as $field => $value )
+                {
+                    $this->bo->{$inverseMap[$field]} = $value;
+                }
             }
+
+            return $this->bo;
         }
 
-        return $this->bo;
     }
 
     public function getAll( $options = array() )

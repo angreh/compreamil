@@ -115,7 +115,8 @@ class View
                     foreach ($value as $object) {
                         foreach ($object as $bvar => $bvalue) {
                             $bvar = strtoupper($bvar);
-                            self::$tpl->$bvar = $bvalue;
+                            if(self::$tpl->exists($bvar))
+                                self::$tpl->$bvar = $bvalue;
                         }
                         self::$tpl->block($var);
                     }

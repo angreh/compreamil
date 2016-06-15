@@ -7,6 +7,10 @@ class Address_Admin_Model
         $dao = new End_Site_Dao();
         $address = $dao->get( array( 'orderID' => $id ) );
 
+        if($address==false) return false;
+
+        $address = $address[0];
+
         $dt = new DataTransform_Admin_Helper();
         $var = $dt->boToArray($address);
 

@@ -7,6 +7,9 @@ class Resp_Admin_Model
         $dao = new Responsavel_Site_Dao();
         $resp = $dao->get(array('orderID'=>$id));
 
+        if( $resp == false ) return false;
+
+        $resp = $resp[0];
         $dt = new DataTransform_Admin_Helper();
         $arr = $dt->boToArray($resp);
 

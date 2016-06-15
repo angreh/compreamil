@@ -45,17 +45,37 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
         //endereço
         $modelEndereco = new Address_Admin_Model();
         $endereco = $modelEndereco->get( $id );
-
-        $vars = array_merge($vars, $endereco);
+        if($endereco != false)
+            $vars = array_merge($vars, $endereco);
 
         //responsável financeiro
         $modelResp = new Resp_Admin_Model();
         $preDadosResp = $modelResp->get( $id );
-        $dadosResp = array();
+        if($preDadosResp != false) {
+            $dadosResp = array();
+            foreach ($preDadosResp as $rKey => $value) $dadosResp['RESP_' . $rKey] = $value;
 
-        foreach($preDadosResp as $rKey => $value) $dadosResp['RESP_'.$rKey] = $value;
+            $vars = array_merge($vars, $dadosResp);
+        }
 
-        $vars = array_merge($vars, $dadosResp);
+        //detalhes do pedido
+        $dadosDetalhes = $modelOrder->getDetails( $id );
+        if($dadosDetalhes!= false)
+            $vars = array_merge($vars, $dadosDetalhes);
+
+        //Dependentes
+        $modelDependentes = new Dependents_Admin_Model();
+        $dependentes = $modelDependentes->getAll( $id );
+        if($dependentes!=false)
+        {
+            foreach($dependentes as $depKey => $dep)
+            {
+                $depData = array();
+                foreach ($dep as $dKey => $dValue) $depData['DEP_' . $dKey] = $dValue;
+                $dependentes[$depKey] = $depData;
+            }
+            $vars['DEPENDENTES_BLOCK'] = $dependentes;
+        }
 
         View::make(
             'pedidos.show',
