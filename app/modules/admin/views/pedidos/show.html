@@ -196,6 +196,98 @@
 
     <!-- END DEPENDENTES_BLOCK -->
 
-        Não possui nenhum dependente!
+        <div class="tmz-data-holder">
+            <div class="tmz-data-title">Quantidade</div>
+            <div class="tmz-data-value">{QTD_PEOPLE}</div>
+        </div>
 
     <!-- FINALLY DEPENDENTES_BLOCK -->
+
+<h3 class="titlehr">Informações do Pagamento</h3>
+
+        <!-- BEGIN CARTAO_BLOCK -->
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Tipo de Pagamento</div>
+                <div class="tmz-data-value">Cartão</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Bandeira</div>
+                <div class="tmz-data-value">{CARTAO_BANDEIRA}</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Parcelas</div>
+                <div class="tmz-data-value">{CARTAO_PARCELAS}</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Titular</div>
+                <div class="tmz-data-value">{CARTAO_TITULAR}</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Número</div>
+                <div class="tmz-data-value">{CARTAO_NUMERO}</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Validade</div>
+                <div class="tmz-data-value">{CARTAO_VALIDADE}</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Código de Segurança</div>
+                <div class="tmz-data-value">{CARTAO_CODIGO}</div>
+            </div>
+
+        <!-- END CARTAO_BLOCK -->
+
+        <!-- BEGIN BOLETO_BLOCK -->
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Tipo de Pagamento</div>
+                <div class="tmz-data-value">Boleto</div>
+            </div>
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Recorrência</div>
+                <div class="tmz-data-value">{BOLETO_RECORRENCIA}</div>
+            </div>
+
+        <!-- END BOLETO_BLOCK -->
+
+        <!-- BEGIN NOPAY_BLOCK -->
+
+            <div class="tmz-data-holder">
+                <div class="tmz-data-title">Tipo de Pagamento</div>
+                <div class="tmz-data-value">Nenhum</div>
+            </div>
+        <!-- END NOPAY_BLOCK -->
+
+<h3 class="titlehr">Ações</h3>
+
+    <a class="btn-flat blue-grey-text" href="/adm/pedidos">Voltar</a>
+    <a class="btn  blue-grey-text orange lighten-5" href="/adm/pedido/progresso/{ORDER_ID}/1">pendente</a>
+    <a class="btn red modal-trigger" href="#modal1">Dispensar</a>
+    <a class="btn" href="/adm/pedido/progresso/{ORDER_ID}/0">Concluido</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal bottom-sheet">
+
+        <div class="modal-content">
+
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat right">Voltar</a>
+            <h4 class="">Motivo da dispensa</h4>
+
+            <a href="/adm/pedido/progresso/{ORDER_ID}/4" class="tmz-dismiss-reason">Dados incorretos - Cartão</a>
+            <a href="/adm/pedido/progresso/{ORDER_ID}/5" class="tmz-dismiss-reason">Dados incorretos - Pessoal</a>
+            <a href="/adm/pedido/progresso/{ORDER_ID}/6" class="tmz-dismiss-reason">Dados incorretos - Endereço</a>
+            <a href="/adm/pedido/progresso/{ORDER_ID}/2" class="tmz-dismiss-reason">Número Inexistente</a>
+            <a href="/adm/pedido/progresso/{ORDER_ID}/3" class="tmz-dismiss-reason">Recusado Verbalmente</a>
+            <a href="/adm/pedido/progresso/{ORDER_ID}/7" class="tmz-dismiss-reason">Outro</a>
+
+        </div>
+
+    </div>

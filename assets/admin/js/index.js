@@ -24,6 +24,7 @@ $(function(){
 
     $('select').material_select();
     $('.modal-trigger').leanModal();
+    $('ul.tabs').tabs();
 });
 
 function setStatusRealValue()

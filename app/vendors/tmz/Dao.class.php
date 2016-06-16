@@ -187,12 +187,17 @@ class Dao
         foreach ( $dataArr as $field => $value )
         {
             if(
-                !is_numeric($value) ||
+                ( !is_numeric($value) && $value !== null ) ||
                 $field == 'telephone'
             )
             {
                 $formatedArr[$field] = "'" . $value . "'";
-            } else {
+            } elseif( $value === null )
+            {
+                $formatedArr[$field] = 'NULL';
+            }
+            else
+            {
                 $formatedArr[$field] = $value;
             }
 

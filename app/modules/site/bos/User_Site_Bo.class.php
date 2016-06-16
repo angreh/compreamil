@@ -9,10 +9,9 @@ class User_Site_Bo
     public $map;
 
     public $user;
-
     public $pass;
-
     public $nivel;
+    public $name;
 
     public function __construct()
     {
@@ -22,6 +21,7 @@ class User_Site_Bo
             'user' => 'vt_em',
             'pass' => 'vt_ps',
             'nivel' => 'vt_nv',
+            'name' => 'vt_nm',
         );
     }
 }

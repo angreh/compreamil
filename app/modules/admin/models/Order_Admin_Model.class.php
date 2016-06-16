@@ -33,4 +33,30 @@ class Order_Admin_Model
 
         return $dataArr;
     }
+
+    public function alterProgress( $orderID, $progress )
+    {
+        if($progress == 1)
+        {
+            $userID = NULL;
+        } else
+        {
+            $user = Instances::getInstance()->Session()->User();
+            $userID = $user->ID;
+        }
+
+        //code
+        $data = array(
+            'ID' => $orderID,
+            'progress' => $progress,
+            'userID' => $userID
+        );
+
+        $dao = new Order_Site_Dao();
+        $dao->alterOne($data);
+
+        Instances::getInstance()->Alerts()->success('Pedido alterado com sucesso.');
+
+        Instances::getInstance()->Request()->redirect( '/adm/pedidos' );
+    }
 }

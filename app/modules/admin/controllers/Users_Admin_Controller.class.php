@@ -23,6 +23,7 @@ class Users_Admin_Controller extends Secure_Admin_Controller
             $data = array(
                 'user' => $_POST['user'],
                 'pass' => $_POST['senha'],
+                'name' => $_POST['name'],
                 'nivel' => $_POST['nivel']
             );
 
@@ -44,10 +45,16 @@ class Users_Admin_Controller extends Secure_Admin_Controller
         {
             $data = array(
                 'ID' => $_POST['id'],
+                'name' => $_POST['name'],
                 'user' => $_POST['user'],
-                'pass' => $_POST['senha'],
                 'nivel' => $_POST['nivel']
             );
+
+            if(!empty($_POST['senha']))
+            {
+                $data['pass'] = $_POST['senha'];
+            }
+
             $userModel->alterUser( $data );
         }
 
@@ -56,6 +63,7 @@ class Users_Admin_Controller extends Secure_Admin_Controller
             'PAGE_TITLE' => 'Usuários',
             'ID' => $user->ID,
             'USER' => $user->user,
+            'NAME' => $user->name,
             'NIVEL' => $user->nivel
         ));
     }

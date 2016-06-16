@@ -16,6 +16,7 @@ class Login_Admin_Controller extends Controller
             );
             $userDao = new User_Site_Dao();
             $user = $userDao->get( $data );
+            $user = $user[0];
 
             if( $user->ID != null )
             {

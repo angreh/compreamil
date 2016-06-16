@@ -5,14 +5,17 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
     public function index()
     {
         $pedidosDao = new Order_Site_Dao();
-        $pedidos = $pedidosDao->getAllWithPre();
+        $pedidos = $pedidosDao->getAllWithPre(1);
+        $pedidosConcluidos = $pedidosDao->getAllWithPre(0);
+        $pedidosDispensados = $pedidosDao->getAllWithPre();
 
         View::make(
             'pedidos.index',
             array(
                 'PAGE_TITLE' => 'Pedidos',
-                'PEDIDOS_BLOCK' => $pedidos
-
+                'PEDIDOS_BLOCK' => $pedidos,
+                'PEDIDOSCONCLUIDOS_BLOCK' => $pedidosConcluidos,
+                'PEDIDOSDISPENSADOS_BLOCK' => $pedidosDispensados
             )
         );
     }
@@ -25,6 +28,7 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
         //inicia a coleta de dados para exibição
         $vars = array();
         $vars['PAGE_TITLE'] = "Pedidos";
+        $vars['ORDER_ID'] = $id;
 
         //dados gerais
         $modelOrder = new Order_Admin_Model();
@@ -77,9 +81,25 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
             $vars['DEPENDENTES_BLOCK'] = $dependentes;
         }
 
+        //Forma de Pagamento
+        $modelPag = new Payment_Admin_Model();
+        $dadosPagamento = $modelPag->getPaymentData( $id );
+        if($dadosPagamento==false) $dadosPagamento = array('NOPAY_BLOCK' => array(array()) );
+
+        $vars = array_merge($vars,$dadosPagamento);
+
         View::make(
             'pedidos.show',
             $vars
         );
+    }
+
+    public function alterProgress()
+    {
+        $orderID = Instances::getInstance()->Request()->getDataValue('orderid');
+        $status = Instances::getInstance()->Request()->getDataValue('progress');
+
+        $model = new Order_Admin_Model();
+        $model->alterProgress( $orderID, $status );
     }
 }

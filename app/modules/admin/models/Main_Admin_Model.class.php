@@ -46,6 +46,7 @@ class Main_Admin_Model
         $dataArr['NOME'] = $data->name;
         $dataArr['EMAIL'] = $data->email;
         $dataArr['TELEFONE'] = $data->telephone;
+        $dataArr['QTD_PEOPLE'] = $data->people;
 
         return $dataArr;
     }

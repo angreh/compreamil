@@ -125,7 +125,7 @@ class Order_Site_Model
 
         $dataPersist = array(
             'parcelas' => $sec->encrypt( ($parc==1)?2:1 ),
-            'pagID' => $sec->encrypt($pagID)
+            'pagID' => $pagID
         );
 
         $bolDao = new Slip_Site_Dao();
@@ -158,7 +158,7 @@ class Order_Site_Model
             'numero' => $sec->encrypt($data['numCart']),
             'codigo' => $sec->encrypt($data['cod']),
             'validade' => $sec->encrypt($data['validade']),
-            'pagID' => $sec->encrypt($pagID)
+            'pagID' => $pagID
         );
 
         $cardDao = new Card_Site_Dao();

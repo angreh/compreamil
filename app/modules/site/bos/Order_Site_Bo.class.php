@@ -11,6 +11,7 @@ class Order_Site_Bo
     public $method;
     public $status;
     public $location;
+    public $progress;
 
     public $userID;
 
@@ -23,6 +24,7 @@ class Order_Site_Bo
             'status' => 'qf_st',
             'location' => 'qf_lc',
             'userID' => 'qf_vt_id',
+            'progress' => 'qf_ad'
         );
     }
 }

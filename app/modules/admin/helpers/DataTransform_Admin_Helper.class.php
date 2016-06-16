@@ -134,6 +134,38 @@ class DataTransform_Admin_Helper
         return $val;
     }
 
+    public function transformBandeira( $data )
+    {
+        $val = false;
+        switch($data)
+        {
+            case 1:
+                $val = 'Visa';
+                break;
+            case 2:
+                $val = 'Mastercard';
+                break;
+        }
+
+        return $val;
+    }
+
+    public function transformBoletoRecorrencia( $data )
+    {
+        $val = false;
+        switch($data)
+        {
+            case 1:
+                $val = 'Mensal';
+                break;
+            case 2:
+                $val = 'Anual';
+                break;
+        }
+
+        return $val;
+    }
+
     public function boToArray( $obj )
     {
         $arr = array();

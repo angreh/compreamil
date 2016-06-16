@@ -44,7 +44,8 @@ class Orcamento_Site_Controller extends Controller
         $dataPre = array(
             'name'      => $_POST['name'],
             'email'     => $_POST['email'],
-            'telephone'  => $_POST['telefone']
+            'telephone'  => $_POST['telefone'],
+            'people'    => isset($_POST['numero'])?$_POST['numero']:0
         );
 
         $model = new Form_Site_Model();

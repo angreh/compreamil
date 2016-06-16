@@ -36,3 +36,15 @@ h3.titlehr
     border-bottom: 1px solid #d0d0d0;
     padding: 0 0 1.424rem 0;
 }
+.tmz-dismiss-reason
+{
+    display: block;
+    margin-bottom: 5px;
+    padding: 5px 15px;
+    background-color: #364146;
+    color: #ffffff;
+}
+.tmz-tab-content
+{
+    padding-top: 20px !important;
+}
