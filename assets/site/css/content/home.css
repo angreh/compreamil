@@ -5,24 +5,70 @@
     position: relative;
     z-index: 10;
 }
+#family {
+    background: none;
+
+}
+@media (min-width: 950px)
+{
+    #family
+    {
+        background: url("/assets/site/imgs/bannerFamily.png") bottom left no-repeat;
+    }
+}
 #banner #family {
-    background-image: url("/assets/site/imgs/bannerFamily.png");
-    width: 1690px;
+    width: 100%;
     height: 707px;
     position: absolute;
     bottom: 0;
-    margin: 0 auto;
     left: 0;
-    right: 0;
 }
+#banner #family
+{
+    background-size: 1500px auto;
+}
+@media (min-width: 1560px)
+{
+    #banner #family
+    {
+        background-size: auto;
+    }
+}
+#family { margin-left: -240px; transition: margin-left 0.5s }
+@media (min-width: 1040px) { #family { margin-left: -200px; } }
+@media (min-width: 1095px) { #family { margin-left: -150px; } }
+@media (min-width: 1220px) { #family { margin-left: -100px; } }
+@media (min-width: 1290px) { #family { margin-left: -50px; } }
+@media (min-width: 1340px) { #family { margin-left: 0; } }
 #home_form {
-    float: right;
     position: relative;
-    margin: 100px 0 50px;
+    margin: 20px 0;
     padding: 30px 20px 20px 20px;
-    width: 420px;
+    width: 100%;
     background-color: #ffffff;
     border-top: 15px solid #00C2DE;
+}
+@media (min-width: 530px) {
+    #home_form {
+        position: relative;
+        margin: 20px auto;
+        padding: 30px 20px 20px 20px;
+        width: 420px;
+        background-color: #ffffff;
+        border-top: 15px solid #00C2DE;
+    }
+}
+@media (min-width: 950px)
+{
+    #home_form {
+        float: right;
+        position: relative;
+        margin: 100px 0 50px;
+        padding: 30px 20px 20px 20px;
+        width: 420px;
+        background-color: #ffffff;
+        border-top: 15px solid #00C2DE;
+    }
 }
 #home_form .wrapper-slogan-stamp {
     position: relative;
@@ -58,12 +104,18 @@
     position: relative;
     padding-top: 20px;
     width: 100%;
+    display: inline-block;
+}
+#home_form .buttons button
+{
+    width: 49%;
 }
 #home_form .buttons button:first-child {
     padding: 15px 30px;
     border: none;
     background-color: #ffffff;
     font-size: 1em;
+    float: left;
     color: #00C2DE;
 }
 #home_form .buttons button[type=submit] {
