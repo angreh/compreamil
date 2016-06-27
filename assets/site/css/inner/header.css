@@ -7,24 +7,24 @@
     width: 300px;
     position: absolute;
     left: 0;
-    padding-top: 24px;
+    padding-top: 2px;
 }
-#left_helper_bg {
-    position: absolute;
-    top: 57px;
-    left: 0;
-}
-#header_logo:before {
-    content: ' ';
-    display: block;
-    left: -900px;
-    width: 900px;
-    background-color: #fefefe;
-    border-bottom: 10px solid #00C2DE;
-    position: absolute;
-    top: 0;
-    height: 122px;
-}
+/*#left_helper_bg {*/
+    /*position: absolute;*/
+    /*top: 57px;*/
+    /*left: 0;*/
+/*}*/
+/*#header_logo:before {*/
+    /*content: ' ';*/
+    /*display: block;*/
+    /*left: -900px;*/
+    /*width: 900px;*/
+    /*background-color: #fefefe;*/
+    /*border-bottom: 10px solid #00C2DE;*/
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*height: 122px;*/
+/*}*/
 #header_contato {
     display: none;
 }
