@@ -134,30 +134,57 @@
     background: url("/assets/site/imgs/texture.png");
 }
 #descriptions .titles {
-    margin: -80px auto 50px;
+    margin: -80px 0 50px 0;
     position: relative;
-    width: 630px;
+    width: 100%;
 }
 #descriptions .titles .one,
 #descriptions .titles .two,
 #descriptions .titles .three {
-    display: inline-block;
-    margin-right: 70px;
+    display: block;
     text-align: center;
-    border-radius: 80px;
     font-size: 14px;
     vertical-align: middle;
+    width: 100%;
+    margin-bottom: 30px;
     position: relative;
 }
 #descriptions .titles .inner {
-    padding: 0 20px;
     display: table-cell;
-    height: 160px;
-    width: 160px;
     vertical-align: middle;
     text-align: center;
     font-size: 1.3em;
     color: #ffffff;
+}
+@media (min-width: 800px)
+{
+    #descriptions .titles {
+        margin: -80px auto 50px;
+        position: relative;
+        width: 630px;
+    }
+    #descriptions .titles .one,
+    #descriptions .titles .two,
+    #descriptions .titles .three {
+        display: inline-block;
+        margin-right: 70px;
+        text-align: center;
+        border-radius: 80px;
+        font-size: 14px;
+        width: auto;
+        vertical-align: middle;
+        position: relative;
+    }
+    #descriptions .titles .inner {
+        padding: 0 20px;
+        display: table-cell;
+        height: 160px;
+        width: 160px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 1.3em;
+        color: #ffffff;
+    }
 }
 #descriptions .titles .one {
     background-color: #a6a9aa;
