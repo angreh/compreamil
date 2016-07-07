@@ -3,7 +3,7 @@
 * {
     /*font-family: Lato, Helvetica, Arial, sans-serif;*/
     font-family: 'Titillium Web', Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
 }
 html, body {
     background-color: #ffffff;
@@ -44,4 +44,9 @@ html, body {
     padding-left: 20px;
     color: #C5270E !important;
     font-size: 1em !important;
+}
+
+a, a img
+{
+    outline: none !important;
 }
