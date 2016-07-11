@@ -3,6 +3,11 @@
     background-color: #fefefe;
     border-bottom: 9px solid #00C2DE;
 }
+#header_logo img
+{
+    width: 100%;
+    height: auto;
+}
 #header_logo {
     width: 260px;
     position: absolute;
