@@ -264,3 +264,26 @@
     color: #ffffff;
 }
 /* .content-'s : END */
+/* MODAL : BEGIN */
+.tmz-remodal-option {
+    background-color: #FF9C00;
+    border: none;
+    color: #ffffff;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    display: inline-block;
+    vertical-align: middle;
+    margin: 6px;
+}
+.tmz-remodal-option-call
+{
+    background-color: #FF9C00;
+    border: none;
+    color: #ffffff;
+    float: right;
+    font-size: 1.1em;
+    padding: 15px 30px;
+    width: 49%;
+    cursor: pointer;
+}
+/* MODAL : END */

@@ -50,3 +50,10 @@ a, a img
 {
     outline: none !important;
 }
+#home_form label.error
+{
+    color: #C5270E;
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-top: 0;
+}

@@ -9,6 +9,7 @@ $routes = array
     'dependentes/rem/{id}'  => 'site/home/depremove',
     'contratar'             => 'site/home/hire',
     'sucesso'               => 'site/home/success',
+    'solicitada'            => 'site/home/successCall',
     'wizard'                => 'site/home/wizard',
     'new'                   => 'site/home/newindex',
 

@@ -9,7 +9,7 @@
     left: 0;
 }
 #header_logo {
-    width: 270px;
+    width: 250px;
     position: relative;
     margin: 6px auto 0 auto;
     z-index: 20;
@@ -24,6 +24,7 @@
         display: block;
     }
     #header_logo {
+        width: 250px;
         position: absolute;
         left: 0;
         padding-top: 6px;

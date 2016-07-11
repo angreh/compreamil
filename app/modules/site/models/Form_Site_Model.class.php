@@ -4,13 +4,29 @@ class Form_Site_Model
 {
     public function preFormPersist( $data )
     {
+        //exit(var_dump($data));
+
+
         $orderDao = new Order_Site_Dao();
 
-        $orderData = array
-        (
-            'method' => 2,
-            'status' => 1,
-        );
+        if($data['solicitaLigacao']=='sim')
+        {
+            $orderData = array
+            (
+                'method' => 2,
+                'status' => 5,
+            );
+        }
+        else
+        {
+            $orderData = array
+            (
+                'method' => 2,
+                'status' => 1,
+            );
+        }
+        unset($data['solicitaLigacao']);
+
         $order = $orderDao->insert( $orderData );
 
         $preDao = new Pre_Site_Dao();
