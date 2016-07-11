@@ -15,6 +15,7 @@
             <form action="/cadastro" method="post">
 
                 <input type="hidden" name="form" value="pre">
+                <input type="hidden" name="solicitaLigacao" id="solicitaLigacao" value="nao">
 
                 <div class="input-place-home">
                     <label for="name">Nome completo: <span>*</span></label>
@@ -35,7 +36,20 @@
 
                 <div class="buttons clearfix">
                     <button type="button" class="quanto" onclick="window.location.href='/orcamento'">QUANTO CUSTA?</button>
-                    <button type="submit">COMPRE AGORA</button>
+                    <!--<button type="submit">COMPRE AGORA</button>-->
+                    <a data-remodal-target="modal-ask" class="tmz-remodal-option-call">COMPRE AGORA</a>
+                </div>
+
+                <div data-remodal-id="modal-ask"
+                     data-remodal-options="hashTracking: false, closeOnOutsideClick: false">
+
+                    <button data-remodal-action="close" class="remodal-close"></button>
+                    <h1>Selecione um ação:</h1>
+                    <br>
+                    <div class="tmz-remodal-options-wrapper">
+                        <button class="tmz-remodal-option submit">Continuar ONLINE</button>
+                        <button data-remodal-target="modal-confirm" class="tmz-remodal-option call">Receber Ligação</button>
+                    </div>
                 </div>
 
             </form>

@@ -14,7 +14,7 @@ class Home_Site_Controller extends Controller
 
     public function form()
     {
-        //exit(var_dump($_POST));
+//        exit(var_dump($_POST));
 
         if( isset($_POST['form']) && !empty($_POST['form']) )
         {
@@ -147,8 +147,15 @@ class Home_Site_Controller extends Controller
                 Instances::getInstance()->Request()->redirect('/');
         }
 
+//        exit(var_dump($_POST));
+
         $model = new Form_Site_Model();
         $model->preFormPersist($data);
+
+        if($data['solicitaLigacao']=='sim')
+        {
+            Instances::getInstance()->Request()->redirect('solicitada');
+        }
     }
 
     public function dependents()
@@ -251,5 +258,10 @@ class Home_Site_Controller extends Controller
         $orderDao = new Order_Site_Dao();
         $orderDao->alterOne($alterData);
         View::make('home.success');
+    }
+
+    public function successCall()
+    {
+        View::make('home.successCall');
     }
 }

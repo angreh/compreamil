@@ -32,6 +32,11 @@ $(function()
         $('#telefone').mask( SPMaskBehavior, spOptions );
     }
 
+    if( $('#home_form').length )
+    {
+        applyModalActions();
+    }
+
     if( $( '#dep-add').length ) enableDepButtons();
 
     if( $( '.tmz-list-par').length ) enableContratar();
@@ -175,6 +180,27 @@ function enableContratar()
                     return true;
                 }
             }
+        }
+    );
+}
+
+function applyModalActions()
+{
+    $('[data-remodal-id=modal-ask]').remodal({hashTracking: false, closeOnOutsideClick: false});
+    //$('[data-remodal-id=modal-confirm]').remodal({hashTracking: false});
+    $('.tmz-remodal-option.submit').on(
+        'click',
+        function()
+        {
+            $('#home_form form').submit();
+        }
+    );
+    $('.tmz-remodal-option.call').on(
+        'click',
+        function()
+        {
+            $('#solicitaLigacao').val('sim');
+            $('#home_form form').submit();
         }
     );
 }
