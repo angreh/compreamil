@@ -145,10 +145,10 @@
         position: relative;
     }
     #descriptions .titles .inner {
-        padding: 0 20px;
+        padding: 0 10px;
         display: table-cell;
-        height: 160px;
-        width: 160px;
+        height: 140px;
+        width: 140px;
         vertical-align: middle;
         text-align: center;
         font-size: 1.3em;
