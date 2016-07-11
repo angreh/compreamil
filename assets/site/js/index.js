@@ -40,6 +40,8 @@ $(function()
     if( $( '#dep-add').length ) enableDepButtons();
 
     if( $( '.tmz-list-par').length ) enableContratar();
+
+    applyFormValidators();
 });
 
 $.fn.centerH = function()
@@ -250,7 +252,7 @@ function applyHomeValitador()
         messages: {
             name: {
                 required: "Por favor insira seu nome",
-                minlength: "Este campo deve conter pelo menos 2 letras"
+                minlength: "Por favor insira um valor válido"
             },
             email: {
                 required: "Este campo é obrigatório",

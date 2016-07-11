@@ -50,10 +50,30 @@ a, a img
 {
     outline: none !important;
 }
-#home_form label.error
+#home_form label.error,
+#cadastro .input-place label.error
 {
     color: #C5270E;
     font-weight: 400;
     font-size: 0.8em;
     margin-top: 0;
+}
+/*#cadastro .input-place label.error:before*/
+/*{*/
+    /*content: ' ';*/
+    /*clear: both;*/
+    /*display: block;*/
+/*}*/
+#cadastro .input-place label.error,
+#aceito-error
+{
+    display: table;
+    background-color: #C5270E;
+    color: #ffffff;
+    padding: 5px;
+}
+#aceito-error
+{
+    float: left;
+    width: 100%;
 }
