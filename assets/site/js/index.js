@@ -184,15 +184,17 @@ function enableContratar()
     );
 }
 
+var globalModalHome = null;
+
 function applyModalActions()
 {
-    $('[data-remodal-id=modal-ask]').remodal({hashTracking: false, closeOnOutsideClick: false});
+    globalModalHome = $('[data-remodal-id=modal-ask]').remodal({hashTracking: false, closeOnOutsideClick: false});
     //$('[data-remodal-id=modal-confirm]').remodal({hashTracking: false});
     $('.tmz-remodal-option.submit').on(
         'click',
         function()
         {
-            $('#home_form form').submit();
+            checkHomeForm();
         }
     );
     $('.tmz-remodal-option.call').on(
@@ -200,7 +202,64 @@ function applyModalActions()
         function()
         {
             $('#solicitaLigacao').val('sim');
-            $('#home_form form').submit();
+            checkHomeForm();
         }
     );
+
+    applyHomeValitador();
+}
+function checkHomeForm()
+{
+    var form = $("#home_form form");
+    if( form.valid() ){
+        form.submit();
+    } else {
+        globalModalHome.close();
+    }
+}
+
+function applyHomeValitador()
+{
+    jQuery.validator.addMethod(
+        "phone",
+        function (value, element){
+            var test = value.replace(/[^0-9]+/g, '');
+            if( test.length == 10 || test.length == 11 )
+            {
+                return true;
+            } else {
+                return false;
+            }
+        }, "Por favor insira um número válido"
+    );
+    $('#home_form form').validate({
+        rules: {
+            name: {
+                required: true,
+                minlength: 2
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            telephone: {
+                required: true,
+                phone: true
+            }
+        },
+        messages: {
+            name: {
+                required: "Por favor insira seu nome",
+                minlength: "Este campo deve conter pelo menos 2 letras"
+            },
+            email: {
+                required: "Este campo é obrigatório",
+                email: "Por favor insira um email válido"
+            },
+            telephone: {
+                required: "Este campo é obrigatório"
+            }
+
+        }
+    });
 }
