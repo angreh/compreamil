@@ -13,9 +13,12 @@ class Resp_Admin_Model
         $dt = new DataTransform_Admin_Helper();
         $arr = $dt->boToArray($resp);
 
-        $arr['SEXO'] = $dt->transformSexo($arr['SEXO']);
-        $arr['ESTADOCIVIL'] = $dt->transformEstadoCivil($arr['ESTADOCIVIL']);
-        $arr['PARENTESCO'] = $dt->transformParentesco($arr['PARENTESCO']);
+//        $arr['SEXO'] = $dt->transformSexo($arr['SEXO']);
+        $arr['SEXO'] = $arr['SEXO'];
+//        $arr['ESTADOCIVIL'] = $dt->transformEstadoCivil($arr['ESTADOCIVIL']);
+        $arr['ESTADOCIVIL'] = $arr['ESTADOCIVIL'];
+//        $arr['PARENTESCO'] = $dt->transformParentesco($arr['PARENTESCO']);
+        $arr['PARENTESCO'] = $arr['PARENTESCO'];
 
         return $arr;
     }

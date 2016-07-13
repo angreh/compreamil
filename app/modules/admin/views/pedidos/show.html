@@ -131,7 +131,7 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">CEP</div>
-        <div class="tmz-data-value"><input name="cep" id="cep" value="{CEP}" aria-table="End" class="tmz-auto-save"></div>
+        <div class="tmz-data-value"><input name="cep" id="cep" value="{CEP}" aria-table="End" aria-field="cep" class="tmz-auto-save"></div>
     </div>
 
 <h3 class="titlehr">Responsável Financeiro</h3>
@@ -153,12 +153,30 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Sexo</div>
-        <div class="tmz-data-value">{RESP_SEXO}</div>
+        <div class="tmz-data-value">
+            <input type="hidden" aria-select="rsexo" value="{RESP_SEXO}">
+            <select name="rsexo" id="rsexo" aria-table="Responsavel" aria-field="sexo" class="tmz-auto-save" >
+                <option disabled="disabled" selected="selected">Selecione</option>
+                <option value="1">Masculino</option>
+                <option value="2">Feminino</option>
+            </select>
+        </div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Estado Civil</div>
-        <div class="tmz-data-value">{RESP_ESTADOCIVIL}</div>
+        <div class="tmz-data-value">
+            <input type="hidden" aria-select="restadoCivil" value="{RESP_ESTADOCIVIL}">
+            <select name="restadoCivil" id="restadoCivil" aria-table="Responsavel" class="tmz-auto-save" aria-field="estadoCivil">
+                <option disabled="disabled" selected="selected">Selecione</option>
+                <option value="1">Casado(a)</option>
+                <option value="2">Divorciado(a)</option>
+                <option value="3">Outros</option>
+                <option value="4">Separado(a)</option>
+                <option value="5">Solteiro(a)</option>
+                <option value="6">Viuvo(a)</option>
+            </select>
+        </div>
     </div>
 
     <div class="tmz-data-holder">
@@ -168,14 +186,42 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Grau de Parentesco</div>
-        <div class="tmz-data-value">{RESP_PARENTESCO}</div>
+        <div class="tmz-data-value">
+            <input type="hidden" aria-select="resp_grauParentesco" value="{RESP_PARENTESCO}">
+            <select
+                    name="resp_grauParentesco"
+                    id="resp_grauParentesco"
+                    class="tmz-auto-save"
+                    aria-table="Responsavel"
+                    aria-field="parentesco">
+                <option disabled="disabled" selected="selected">Selecione</option>
+                <option value="1">Cônjuge</option>
+                <option value="2">Filho(a)</option>
+                <option value="3">Irmão/Irmã</option>
+                <option value="4">Outros</option>
+                <option value="5">Pai/Mãe</option>
+                <option value="6">Sogro(a)</option>
+            </select>
+        </div>
     </div>
 
 <h3 class="titlehr">Detalhes</h3>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Busca</div>
-        <div class="tmz-data-value">{ONLINEOFFLINE}</div>
+        <div class="tmz-data-value">
+            <input type="hidden" aria-select="busca" value="{ONLINEOFFLINE}">
+            <select
+                    name="busca"
+                    id="busca"
+                    class="tmz-auto-save"
+                    aria-table="Detalhes"
+                    aria-field="onlineOffline">
+                <option disabled="disabled" selected="selected">Selecione</option>
+                <option value="1">Online</option>
+                <option value="2">Offline</option>
+            </select>
+        </div>
     </div>
 
     <div class="tmz-data-holder">

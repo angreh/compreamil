@@ -29,7 +29,8 @@ class Order_Admin_Model
 
         $dt = new DataTransform_Admin_Helper();
         $dataArr = $dt->boToArray( $details );
-        $dataArr['ONLINEOFFLINE'] = $dt->transformBusca($dataArr['ONLINEOFFLINE']);
+//        $dataArr['ONLINEOFFLINE'] = $dt->transformBusca($dataArr['ONLINEOFFLINE']);
+        $dataArr['ONLINEOFFLINE'] = $dataArr['ONLINEOFFLINE'];
 
         return $dataArr;
     }
