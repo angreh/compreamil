@@ -55,6 +55,7 @@
     top: auto;
     right: auto;
     letter-spacing: 0.1em;
+    cursor: pointer;
 }
 #footer .footer-cdc-logo {
     position: relative;

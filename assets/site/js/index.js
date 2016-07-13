@@ -8,6 +8,7 @@ $(function()
     {
         applyMasks();
         applyTooltip();
+        applyFormValidators();
     }
 
     $( '.fulllist-show').on( 'click', function()
@@ -35,13 +36,37 @@ $(function()
     if( $('#home_form').length )
     {
         applyModalActions();
+        $('#tmz-quanto-custa').on(
+            'click',
+            function()
+            {
+                var form = $("#home_form form");
+                if( form.valid() )
+                {
+                    $.ajax({
+                        method: 'post',
+                        url: '/ajaxestimate',
+                        data: form.serialize(),
+                        success: function()
+                        {
+                            window.location.href = "/orcamento";
+                        }
+                    });
+                }
+            }
+        );
     }
 
     if( $( '#dep-add').length ) enableDepButtons();
 
     if( $( '.tmz-list-par').length ) enableContratar();
 
-    applyFormValidators();
+    $(".estimate-request").on(
+        'click',
+        function(){
+            window.location.href = "/orcamento";
+        }
+    );
 });
 
 $.fn.centerH = function()

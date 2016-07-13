@@ -6,6 +6,8 @@
 
 <h3 class="titlehr">Dados Gerais</h3>
 
+    <input type="hidden" name="pedidoID" id="pedidoID" value="{ORDER_ID}">
+
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Método</div>
         <div class="tmz-data-value">{METODO}</div>
@@ -25,101 +27,128 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Nome</div>
-        <div class="tmz-data-value">{NOME}</div>
+        <div class="tmz-data-value"><input name="name" id="name" value="{NOME}" aria-table="Pre" aria-field="name" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">CPF</div>
-        <div class="tmz-data-value">{CPF}</div>
+        <div class="tmz-data-value"><input name="cpf" id="cpf" value="{CPF}" aria-table="Titular" aria-field="cpf" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">RG</div>
-        <div class="tmz-data-value">{RG}</div>
+        <div class="tmz-data-value"><input name="rg" id="rg" value="{RG}" aria-table="Titular" aria-field="rg" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Data de Nascimento</div>
-        <div class="tmz-data-value">{NASCIMENTO}</div>
+        <div class="tmz-data-value"><input name="nascimento" id="nascimento" value="{NASCIMENTO}" aria-table="Titular" aria-field="nascimento" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Sexo</div>
-        <div class="tmz-data-value">{SEXO}</div>
+        <div class="tmz-data-value">
+            <input type="hidden" aria-select="sexo" value="{SEXO}">
+            <select name="sexo" id="sexo" class="tmz-auto-save" aria-table="Titular" aria-field="sexo">
+                <option disabled="disabled" selected="selected">Selecione</option>
+                <option value="1">Masculino</option>
+                <option value="2">Feminino</option>
+            </select>
+        </div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Estado Civil</div>
-        <div class="tmz-data-value">{ESTADOCIVIL}</div>
+        <div class="tmz-data-value">
+            <input type="hidden" aria-select="estadoCivil" value="{ESTADOCIVIL}">
+            <select name="estadoCivil" id="estadoCivil" aria-table="Titular" class="tmz-auto-save" aria-field="estadoCivil">
+                <option disabled="disabled" selected="selected">Selecione</option>
+                <option value="1">Casado(a)</option>
+                <option value="2">Divorciado(a)</option>
+                <option value="3">Outros</option>
+                <option value="4">Separado(a)</option>
+                <option value="5">Solteiro(a)</option>
+                <option value="6">Viuvo(a)</option>
+            </select>
+        </div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Email</div>
-        <div class="tmz-data-value">{EMAIL}</div>
+        <div class="tmz-data-value"><input name="email" id="email" value="{EMAIL}" aria-table="Pre" class="tmz-auto-save" aria-field="email"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Telefone</div>
-        <div class="tmz-data-value">{TELEFONE}</div>
+        <div class="tmz-data-value"><input name="telephone" id="telephone" value="{TELEFONE}" aria-table="Pre" aria-field="telephone" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Telefone Res.</div>
-        <div class="tmz-data-value">{TELRES}</div>
+        <div class="tmz-data-value"><input name="telRes" id="telRes" value="{TELRES}" aria-table="Titular" aria-field="telRes" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Nome da Mãe</div>
-        <div class="tmz-data-value">{MAE}</div>
+        <div class="tmz-data-value"><input name="mae" id="mae" value="{MAE}" aria-table="Titular" aria-field="mae" class="tmz-auto-save"></div>
     </div>
 
 <h3 class="titlehr">Endereço</h3>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Logradouro</div>
-        <div class="tmz-data-value">{LOGRADOURO}</div>
+        <div class="tmz-data-value"><input name="logradouro" id="logradouro" value="{LOGRADOURO}" aria-table="End" aria-field="logradouro" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Número</div>
-        <div class="tmz-data-value">{NUMERO}</div>
+        <div class="tmz-data-value"><input name="numero" id="numero" value="{NUMERO}" aria-table="End" aria-field="numero" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Complemento</div>
-        <div class="tmz-data-value">{COMPLEMENTO}</div>
+        <div class="tmz-data-value"><input name="complemento" id="complemento" value="{COMPLEMENTO}" aria-table="End" aria-field="complemento" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Bairo</div>
-        <div class="tmz-data-value">{BAIRRO}</div>
+        <div class="tmz-data-value"><input name="bairro" id="bairro" value="{BAIRRO}" aria-table="End" aria-field="bairro" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Cidade</div>
-        <div class="tmz-data-value">{CIDADE} - {ESTADO}</div>
+        <div class="tmz-data-value">
+            <input name="cidade" id="cidade" value="{CIDADE}" aria-table="End" aria-field="cidade" class="tmz-auto-save">
+        </div>
+    </div>
+
+    <div class="tmz-data-holder">
+        <div class="tmz-data-title">Estado</div>
+        <div class="tmz-data-value">
+            <input name="estado" id="estado" value="{ESTADO}" aria-table="End" aria-field="estado" class="tmz-auto-save">
+        </div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">CEP</div>
-        <div class="tmz-data-value">{CEP}</div>
+        <div class="tmz-data-value"><input name="cep" id="cep" value="{CEP}" aria-table="End" class="tmz-auto-save"></div>
     </div>
 
 <h3 class="titlehr">Responsável Financeiro</h3>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Nome</div>
-        <div class="tmz-data-value">{RESP_NOME}</div>
+        <div class="tmz-data-value"><input name="rname" id="rname" value="{RESP_NOME}" aria-table="Responsavel" aria-field="nome" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">CPF</div>
-        <div class="tmz-data-value">{RESP_CPF}</div>
+        <div class="tmz-data-value"><input name="rcpf" id="rcpf" value="{RESP_CPF}" aria-table="Responsavel" aria-field="cpf" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Data de Nascimento</div>
-        <div class="tmz-data-value">{RESP_NASCIMENTO}</div>
+        <div class="tmz-data-value"><input name="rnascimento" id="rnascimento" value="{RESP_NASCIMENTO}" aria-table="Responsavel" aria-field="nascimento" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
@@ -134,7 +163,7 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Email</div>
-        <div class="tmz-data-value">{RESP_EMAIL}</div>
+        <div class="tmz-data-value"><input name="remail" id="remail" value="{RESP_EMAIL}" aria-table="Responsavel" aria-field="email" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
@@ -268,26 +297,30 @@
 
 <h3 class="titlehr">Ações</h3>
 
-    <a class="btn-flat blue-grey-text" href="/adm/pedidos">Voltar</a>
-    <a class="btn  blue-grey-text orange lighten-5" href="/adm/pedido/progresso/{ORDER_ID}/1">pendente</a>
-    <a class="btn red modal-trigger" href="#modal1">Dispensar</a>
-    <a class="btn" href="/adm/pedido/progresso/{ORDER_ID}/0">Concluido</a>
+<a class="btn-flat blue-grey-text" href="/adm/pedidos">Voltar</a>
+<a class="btn  blue-grey-text orange lighten-5" href="/adm/pedido/progresso/{ORDER_ID}/1">pendente</a>
+<a class="btn red modal-trigger" href="#modal1">Dispensar</a>
+<a class="btn" href="/adm/pedido/progresso/{ORDER_ID}/0">Concluido</a>
 
-    <!-- Modal Structure -->
-    <div id="modal1" class="modal bottom-sheet">
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet">
 
-        <div class="modal-content">
+    <div class="modal-content">
 
-            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat right">Voltar</a>
-            <h4 class="">Motivo da dispensa</h4>
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat right">Voltar</a>
+        <h4 class="">Motivo da dispensa</h4>
 
-            <a href="/adm/pedido/progresso/{ORDER_ID}/4" class="tmz-dismiss-reason">Dados incorretos - Cartão</a>
-            <a href="/adm/pedido/progresso/{ORDER_ID}/5" class="tmz-dismiss-reason">Dados incorretos - Pessoal</a>
-            <a href="/adm/pedido/progresso/{ORDER_ID}/6" class="tmz-dismiss-reason">Dados incorretos - Endereço</a>
-            <a href="/adm/pedido/progresso/{ORDER_ID}/2" class="tmz-dismiss-reason">Número Inexistente</a>
-            <a href="/adm/pedido/progresso/{ORDER_ID}/3" class="tmz-dismiss-reason">Recusado Verbalmente</a>
-            <a href="/adm/pedido/progresso/{ORDER_ID}/7" class="tmz-dismiss-reason">Outro</a>
-
-        </div>
+        <a href="/adm/pedido/progresso/{ORDER_ID}/4" class="tmz-dismiss-reason">Dados incorretos - Cartão</a>
+        <a href="/adm/pedido/progresso/{ORDER_ID}/5" class="tmz-dismiss-reason">Dados incorretos - Pessoal</a>
+        <a href="/adm/pedido/progresso/{ORDER_ID}/6" class="tmz-dismiss-reason">Dados incorretos - Endereço</a>
+        <a href="/adm/pedido/progresso/{ORDER_ID}/2" class="tmz-dismiss-reason">Número Inexistente</a>
+        <a href="/adm/pedido/progresso/{ORDER_ID}/3" class="tmz-dismiss-reason">Recusado Verbalmente</a>
+        <a href="/adm/pedido/progresso/{ORDER_ID}/7" class="tmz-dismiss-reason">Outro</a>
 
     </div>
+
+</div>
+
+<div class="tmz-mini-alert">
+    Salvando ...
+</div>

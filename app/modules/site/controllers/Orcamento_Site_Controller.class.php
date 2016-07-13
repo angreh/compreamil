@@ -7,7 +7,27 @@ class Orcamento_Site_Controller extends Controller
 
     public function index()
     {
-        View::make( 'orcamento.index' );
+        $id = Instances::getInstance()->Session()->getVar('site_order');
+
+        if( empty($id) || $id == false )
+        {
+            $vars = array(
+                'NAME' => '',
+                'EMAIL' => '',
+                'PHONE' => ''
+            );        }
+        else
+        {
+            $dao = new Order_Site_Dao();
+            $order = (object) $dao->getOneWithPre( $id );
+
+            $vars = array(
+                'NAME' => $order->name,
+                'EMAIL' => $order->email,
+                'PHONE' => $order->telephone
+            );
+        }
+        View::make( 'orcamento.index', $vars );
     }
 
     public function calc()
@@ -110,6 +130,14 @@ class Orcamento_Site_Controller extends Controller
             'YEAR_PRICE' => $year,
             'PLAN_DETAIL' => ($people>1)?'FAMÍLIA':'INDIVIDUAL'
         ), false);
+    }
+
+    public function presave()
+    {
+//        exit(var_dump($_POST));
+        unset($_POST['form']);
+        $model = new Form_Site_Model();
+        $model->preFormPersist($_POST);
     }
 
 }

@@ -29,8 +29,10 @@ class Main_Admin_Model
 
         $dt = new DataTransform_Admin_Helper();
 
-        $data['SEXO'] = $dt->transformSexo($data['SEXO']);
-        $data['ESTADOCIVIL'] = $dt->transformEstadoCivil($data['ESTADOCIVIL']);
+//        $data['SEXO'] = $dt->transformSexo($data['SEXO']);
+        $data['SEXO'] = $data['SEXO'];
+//        $data['ESTADOCIVIL'] = $dt->transformEstadoCivil($data['ESTADOCIVIL']);
+        $data['ESTADOCIVIL'] = $data['ESTADOCIVIL'];
 
         return $data;
     }

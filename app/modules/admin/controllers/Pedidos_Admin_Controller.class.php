@@ -102,4 +102,11 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
         $model = new Order_Admin_Model();
         $model->alterProgress( $orderID, $status );
     }
+
+    public function autosave()
+    {
+        $data = $_POST;
+        $autoSave = new AutoSave_Admin_Helper();
+        $autoSave->save($data);
+    }
 }

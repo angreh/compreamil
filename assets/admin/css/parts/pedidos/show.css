@@ -48,3 +48,29 @@ h3.titlehr
 {
     padding-top: 20px !important;
 }
+
+.tmz-mini-alert
+{
+    display: none;
+    padding: 8px;
+    position: fixed;
+    bottom: 0;
+    margin: 0 auto;
+    color: #ffffff;
+    background-color: #e65100;
+}
+.tmz-auto-save,
+.tmz-auto-save input
+{
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    height: auto !important;
+    line-height: inherit !important;
+}
+.tmz-auto-save:focus
+{
+    font-weight: 700;
+    color: #e65100;
+}

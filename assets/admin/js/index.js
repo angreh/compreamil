@@ -22,6 +22,11 @@ $(function(){
 
     if( $('#usuarios-edit').length ) initUserEditForm();
 
+    if( $('.tmz-auto-save').length ) {
+        autoSaveField();
+        applyMasks();
+    }
+
     $('select').material_select();
     $('.modal-trigger').leanModal();
     $('ul.tabs').tabs();
@@ -74,4 +79,41 @@ function initUserEditForm()
     option = option.substring(5);
     $(".tmz-select-label select").val(option);
     $('select').material_select();
+}
+
+var timeoutController = {};
+function autoSaveField()
+{
+    $('.tmz-auto-save').on(
+        'input propertychange change',
+        function()
+        {
+            var id = $(this).attr('aria-field');
+            var field = this;
+            if( timeoutController.hasOwnProperty(id) ) clearTimeout(timeoutController[id]);
+            timeoutController[id] = setTimeout(function()
+            {
+                var orderID = $('#pedidoID').val();
+                var table = $(field).attr('aria-table');
+                var value = $(field).val();
+                autoSave(id,table,value,orderID);
+            }, 1500);
+        }
+    );
+}
+
+function autoSave(id,table,value,orderID)
+{
+    $('.tmz-mini-alert').slideDown();
+    $.ajax({
+        method: 'post',
+        url: '/adm/autosave',
+        data: 'id=' + id + '&table=' + table + '&value=' + value + '&orderID=' + orderID,
+        success: function(data)
+        {
+            $('.tmz-mini-alert').slideUp(500,function(){
+                //alert(data);
+            });
+        }
+    });
 }

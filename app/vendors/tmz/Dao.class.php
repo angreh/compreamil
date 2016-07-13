@@ -149,27 +149,54 @@ class Dao
 
     public function alterOne($data, $debug = false)
     {
-        $id = $data['ID'];
-        unset( $data['ID'] );
-
-        if( empty($data['pass']) )
-            unset($data['pass']);
-        else
-            $data['pass'] = md5($data['pass']);
-
-        $data = $this->preFormatValue($data);
-
-        $fieldsArr = array();
-        foreach( $data as  $field => $value )
+        if( isset($data['SET']) )
         {
-            $fieldsArr[] = $this->bo->map[$field] . '=' . $value;
-        }
-        $fields = implode( ',', $fieldsArr );
+            $set = $this->preFormatValue($data['SET']);
+            $where = $this->preFormatValue($data['WHERE']);
 
-        $result = Instances::getInstance()->Database()->query(array(
-            'sql'   => "UPDATE " . $this->bo->table . " SET $fields WHERE " . $this->bo->map['ID'] . '=' . $id,
-            'debug' => $debug
-        ));
+            $fieldsArr = array();
+            foreach( $set as  $field => $value )
+            {
+                $fieldsArr[] = $this->bo->map[$field] . '=' . $value;
+            }
+            $fields = implode( ',', $fieldsArr );
+
+            $whereArr = array();
+            foreach( $where as  $field => $value )
+            {
+                $whereArr[] = $this->bo->map[$field] . '=' . $value;
+            }
+            $wheres = implode( ' AND ', $whereArr );
+
+            $result = Instances::getInstance()->Database()->query(array(
+                'sql'   => "UPDATE " . $this->bo->table . " SET $fields WHERE " . $wheres,
+                'debug' => $debug
+            ));
+        }
+        else
+        {
+            $id = $data['ID'];
+            unset( $data['ID'] );
+
+            if( empty($data['pass']) )
+                unset($data['pass']);
+            else
+                $data['pass'] = md5($data['pass']);
+
+            $data = $this->preFormatValue($data);
+
+            $fieldsArr = array();
+            foreach( $data as  $field => $value )
+            {
+                $fieldsArr[] = $this->bo->map[$field] . '=' . $value;
+            }
+            $fields = implode( ',', $fieldsArr );
+
+            $result = Instances::getInstance()->Database()->query(array(
+                'sql'   => "UPDATE " . $this->bo->table . " SET $fields WHERE " . $this->bo->map['ID'] . '=' . $id,
+                'debug' => $debug
+            ));
+        }
     }
 
     public function remove ($id)

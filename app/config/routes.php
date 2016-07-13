@@ -13,8 +13,9 @@ $routes = array
     'wizard'                => 'site/home/wizard',
     'new'                   => 'site/home/newindex',
 
-    'orcamento'         => 'site/orcamento/index',
-    'orcamento/calc'         => 'site/orcamento/calc',
+    'orcamento'             => 'site/orcamento/index',
+    'orcamento/calc'        => 'site/orcamento/calc',
+    'ajaxestimate'          => 'site/orcamento/presave',
 
 
     //site actions
@@ -38,6 +39,7 @@ $routes = array
     'adm/pedidos'                                   => 'admin/pedidos/index',
     'adm/pedido/progresso/{orderid}/{progress}'     => 'admin/pedidos/alterProgress',
     'adm/pedido/{id}'                               => 'admin/pedidos/show',
+    'adm/autosave'                                  => 'admin/pedidos/autosave',
 
     //usuários
     'adm/usuarios'              => 'admin/users/index',

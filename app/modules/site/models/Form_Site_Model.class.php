@@ -2,7 +2,7 @@
 
 class Form_Site_Model
 {
-    public function preFormPersist( $data )
+    public function preFormPersist( $data, $debug = false )
     {
         //exit(var_dump($data));
 
@@ -27,11 +27,11 @@ class Form_Site_Model
         }
         unset($data['solicitaLigacao']);
 
-        $order = $orderDao->insert( $orderData );
+        $order = $orderDao->insert( $orderData, $debug );
 
         $preDao = new Pre_Site_Dao();
         $data['orderID'] = $order->ID;
-        $pre = $preDao->insert( $data );
+        $pre = $preDao->insert( $data, $debug );
 
         Instances::getInstance()->Session()->setVar( 'site_order', $order->ID );
 
