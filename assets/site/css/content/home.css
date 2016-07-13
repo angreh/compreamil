@@ -93,7 +93,28 @@
     padding: 15px 30px;
 }
 /* BANNER : END */
-
+/* PRECONTENT : START */
+.tmz-pre-content
+{
+    padding-bottom: 32px;
+    position: relative;
+}
+.tmz-pre-content a.botao-comprar
+{
+    display: block;
+    background-color: #ff9c00;
+    color: #ffffff;
+    padding: 10px 30px;
+    position: absolute;
+    right: 0;
+    top: 60px;
+    border-bottom: 4px #a6a9aa solid;
+    z-index: 100;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.4em;
+}
+/* PRECONTENT : END */
 /* DESCRIPTIONS : BEGIN */
 #descriptions .band {
     height:  150px;
