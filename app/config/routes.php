@@ -36,10 +36,11 @@ $routes = array
     'adm'               => 'admin/home/index',
 
     //pedidos
-    'adm/pedidos'                                   => 'admin/pedidos/index',
-    'adm/pedido/progresso/{orderid}/{progress}'     => 'admin/pedidos/alterProgress',
-    'adm/pedido/{id}'                               => 'admin/pedidos/show',
-    'adm/autosave'                                  => 'admin/pedidos/autosave',
+    'adm/pedidos'                                       => 'admin/pedidos/index',
+    'adm/dependente/remover/{orderid}/{depid}'          => 'admin/pedidos/removerdependente',
+    'adm/pedido/progresso/{orderid}/{progress}'         => 'admin/pedidos/alterProgress',
+    'adm/pedido/{id}'                                   => 'admin/pedidos/show',
+    'adm/autosave'                                      => 'admin/pedidos/autosave',
 
     //usuários
     'adm/usuarios'              => 'admin/users/index',

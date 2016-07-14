@@ -103,6 +103,17 @@ class Pedidos_Admin_Controller extends Secure_Admin_Controller
         $model->alterProgress( $orderID, $status );
     }
 
+    public function removerdependente()
+    {
+        $orderID = Instances::getInstance()->Request()->getDataValue('orderid');
+        $depID= Instances::getInstance()->Request()->getDataValue('depid');
+
+        $model = new Dependents_Admin_Model();
+        $model->remove($depID);
+
+        Instances::getInstance()->Request()->redirect( '/adm/pedido/' . $orderID );
+    }
+
     public function autosave()
     {
         $data = $_POST;

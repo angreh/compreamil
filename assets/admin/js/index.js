@@ -93,27 +93,27 @@ function autoSaveField()
             if( timeoutController.hasOwnProperty(id) ) clearTimeout(timeoutController[id]);
             timeoutController[id] = setTimeout(function()
             {
+                var fieldID = field.hasAttribute('aria-id')?$(field).attr('aria-id'):false;
                 var orderID = $('#pedidoID').val();
                 var table = $(field).attr('aria-table');
                 var value = $(field).val();
-                autoSave(id,table,value,orderID);
+                autoSave(id,table,value,orderID,fieldID);
             }, 1500);
         }
     );
 }
 
-function autoSave(id,table,value,orderID)
+function autoSave(id,table,value,orderID,fieldID)
 {
     $('.tmz-mini-alert').slideDown();
+    fieldID = (fieldID===false)?'':'&fieldID=' + fieldID;
     $.ajax({
         method: 'post',
         url: '/adm/autosave',
-        data: 'id=' + id + '&table=' + table + '&value=' + value + '&orderID=' + orderID,
-        success: function(data)
+        data: 'id=' + id + '&table=' + table + '&value=' + value + '&orderID=' + orderID + fieldID,
+        success: function()
         {
-            $('.tmz-mini-alert').slideUp(500,function(){
-                //alert(data);
-            });
+            $('.tmz-mini-alert').slideUp(500);
         }
     });
 }

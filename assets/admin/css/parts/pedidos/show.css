@@ -74,3 +74,19 @@ h3.titlehr
     font-weight: 700;
     color: #e65100;
 }
+.btn-small
+{
+    font-size: 0.7em !important;
+    line-height: 18px !important;
+    height: 16px !important;
+    padding: 0 5px !important;
+}
+.tmz-dep-add
+{
+    display: inline-block;
+}
+.tmz-dep-add a.button
+{
+    color: #2bbbad;
+    cursor: pointer;
+}

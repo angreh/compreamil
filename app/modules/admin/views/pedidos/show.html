@@ -32,7 +32,7 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">CPF</div>
-        <div class="tmz-data-value"><input name="cpf" id="cpf" value="{CPF}" aria-table="Titular" aria-field="cpf" class="tmz-auto-save"></div>
+        <div class="tmz-data-value"><input name="cpf" id="cpf" value="{CPF}" aria-table="Titular" aria-field="cpf" class="tmz-auto-save maskcpf"></div>
     </div>
 
     <div class="tmz-data-holder">
@@ -42,7 +42,14 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Data de Nascimento</div>
-        <div class="tmz-data-value"><input name="nascimento" id="nascimento" value="{NASCIMENTO}" aria-table="Titular" aria-field="nascimento" class="tmz-auto-save"></div>
+        <div class="tmz-data-value">
+            <input
+                    name="nascimento"
+                    id="nascimento"
+                    value="{NASCIMENTO}"
+                    aria-table="Titular"
+                    aria-field="nascimento"
+                    class="tmz-auto-save masknascimento"></div>
     </div>
 
     <div class="tmz-data-holder">
@@ -143,12 +150,20 @@
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">CPF</div>
-        <div class="tmz-data-value"><input name="rcpf" id="rcpf" value="{RESP_CPF}" aria-table="Responsavel" aria-field="cpf" class="tmz-auto-save"></div>
+        <div class="tmz-data-value"><input name="rcpf" id="rcpf" value="{RESP_CPF}" aria-table="Responsavel" aria-field="cpf maskcpf" class="tmz-auto-save"></div>
     </div>
 
     <div class="tmz-data-holder">
         <div class="tmz-data-title">Data de Nascimento</div>
-        <div class="tmz-data-value"><input name="rnascimento" id="rnascimento" value="{RESP_NASCIMENTO}" aria-table="Responsavel" aria-field="nascimento" class="tmz-auto-save"></div>
+        <div class="tmz-data-value">
+            <input
+                    name="rnascimento"
+                    id="rnascimento"
+                    value="{RESP_NASCIMENTO}"
+                    aria-table="Responsavel"
+                    aria-field="nascimento"
+                    class="tmz-auto-save masknascimento">
+        </div>
     </div>
 
     <div class="tmz-data-holder">
@@ -191,9 +206,9 @@
             <select
                     name="resp_grauParentesco"
                     id="resp_grauParentesco"
-                    class="tmz-auto-save"
                     aria-table="Responsavel"
-                    aria-field="parentesco">
+                    aria-field="parentesco"
+                    class="tmz-auto-save">
                 <option disabled="disabled" selected="selected">Selecione</option>
                 <option value="1">Cônjuge</option>
                 <option value="2">Filho(a)</option>
@@ -214,9 +229,9 @@
             <select
                     name="busca"
                     id="busca"
-                    class="tmz-auto-save"
                     aria-table="Detalhes"
-                    aria-field="onlineOffline">
+                    aria-field="onlineOffline"
+                    class="tmz-auto-save">
                 <option disabled="disabled" selected="selected">Selecione</option>
                 <option value="1">Online</option>
                 <option value="2">Offline</option>
@@ -229,43 +244,137 @@
         <div class="tmz-data-value">-</div>
     </div>
 
-<h3 class="titlehr">Dependentes</h3>
+<h3 class="titlehr">
+    Dependentes
+    <div class="tmz-dep-add">
+        <a class="button"><i class="material-icons">add_box</i></a>
+    </div>
+</h3>
 
     <!-- BEGIN DEPENDENTES_BLOCK -->
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">NOME</div>
-            <div class="tmz-data-value">{DEP_NOME}</div>
+            <div class="tmz-data-value">
+                <input
+                        name="nome"
+                        id="nome_{DEP_ID}"
+                        value="{DEP_NOME}"
+                        aria-table="Dependentes"
+                        aria-field="nome"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save">
+            </div>
         </div>
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">CPF</div>
-            <div class="tmz-data-value">{DEP_CPF}</div>
+            <div class="tmz-data-value">
+                <input
+                        name="cpf"
+                        id="cpf_{DEP_ID}"
+                        value="{DEP_CPF}"
+                        aria-table="Dependentes"
+                        aria-field="cpf"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save maskcpf">
+            </div>
         </div>
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">Data de Nascimento</div>
-            <div class="tmz-data-value">{DEP_NASCIMENTO}</div>
+            <div class="tmz-data-value">
+                <input
+                        name="nascimento"
+                        id="nascimento_{DEP_ID}"
+                        value="{DEP_NASCIMENTO}"
+                        aria-table="Dependentes"
+                        aria-field="nascimento"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save masknascimento">
+            </div>
         </div>
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">Sexo</div>
-            <div class="tmz-data-value">{DEP_SEXO}</div>
+            <div class="tmz-data-value">
+                <input type="hidden" aria-select="dsexo_{DEP_ID}" value="{DEP_SEXO}">
+                <select
+                        name="dsexo"
+                        id="dsexo_{DEP_ID}"
+                        aria-table="Dependentes"
+                        aria-field="sexo"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save">
+                    <option disabled="disabled" selected="selected">Selecione</option>
+                    <option value="1">Masculino</option>
+                    <option value="2">Feminino</option>
+                </select>
+            </div>
         </div>
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">Grau de Parentesco</div>
-            <div class="tmz-data-value">{DEP_PARENTESCO}</div>
+            <div class="tmz-data-value">
+
+                <input type="hidden" aria-select="dparentesco_{DEP_ID}" value="{DEP_PARENTESCO}">
+                <select
+                        name="dparentesco"
+                        id="dparentesco_{DEP_ID}"
+                        aria-table="Dependentes"
+                        aria-field="parentesco"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save">
+                    <option disabled="disabled" selected="selected">Selecione</option>
+                    <option value="1">Cônjuge</option>
+                    <option value="2">Filho(a)</option>
+                    <option value="3">Irmão/Irmã</option>
+                    <option value="4">Outros</option>
+                    <option value="5">Pai/Mãe</option>
+                    <option value="6">Sogro(a)</option>
+                </select>
+            </div>
         </div>
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">Estado Civil</div>
-            <div class="tmz-data-value">{DEP_ESTADOCIVIL}</div>
+            <div class="tmz-data-value">
+                <input type="hidden" aria-select="destadoCivil_{DEP_ID}" value="{DEP_ESTADOCIVIL}">
+                <select
+                        name="destadoCivil"
+                        id="destadoCivil_{DEP_ID}"
+                        aria-table="Dependentes"
+                        aria-field="estadoCivil"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save">
+                    <option disabled="disabled" selected="selected">Selecione</option>
+                    <option value="1">Casado(a)</option>
+                    <option value="2">Divorciado(a)</option>
+                    <option value="3">Outros</option>
+                    <option value="4">Separado(a)</option>
+                    <option value="5">Solteiro(a)</option>
+                    <option value="6">Viuvo(a)</option>
+                </select>
+            </div>
         </div>
 
         <div class="tmz-data-holder">
             <div class="tmz-data-title">Nome da Mãe</div>
-            <div class="tmz-data-value">{DEP_MAE}</div>
+            <div class="tmz-data-value">
+                <input
+                        name="mae"
+                        id="mae_{DEP_ID}"
+                        value="{DEP_MAE}"
+                        aria-table="Dependentes"
+                        aria-field="mae"
+                        aria-id="{DEP_ID}"
+                        class="tmz-auto-save">
+            </div>
+        </div>
+
+        <div class="tmz-data-holder">
+            <div class="tmz-data-title">&nbsp;</div>
+            <div class="tmz-data-value"><a class="btn btn-small red" href="/adm/dependente/remover/{ORDER_ID}/{DEP_ID}">REMOVER</a> </div>
         </div>
         <br>
 

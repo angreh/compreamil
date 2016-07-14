@@ -1,11 +1,11 @@
 function applyMasks()
 {
-    $('#cpf').mask
+    $('.maskcpf').mask
     (
         '000.000.000-00'
     );
 
-    $('#nascimento').mask
+    $('.masknascimento').mask
     (
         '00/00/0000'
     );
@@ -17,16 +17,6 @@ function applyMasks()
     $('#cep').mask
     (
         '00000-000'
-    );
-
-    $('#rcpf').mask
-    (
-        '000.000.000-00'
-    );
-
-    $('#rnascimento').mask
-    (
-        '00/00/0000'
     );
 
     triggerSelect();
