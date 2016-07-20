@@ -19,7 +19,7 @@
     margin: 20px 0;
     padding: 30px 20px 20px 20px;
     width: 100%;
-    background-color: rgba( 255, 255, 255, .9 );
+    background-color: #ffffff;
     border-top: 15px solid #00C2DE;
 }
 @media (min-width: 530px) {

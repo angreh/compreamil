@@ -72,18 +72,23 @@
     width: 330px;
     text-align: left;
     font-style: italic;
+    line-height: 1em;
+}
+#footer .description img
+{
+    margin-top: 10px;
 }
 @media (min-width: 1100px) {
     #footer_logo {
         position: absolute;
         padding: 0;
-        top: 40px;
+        top: 28px;
         left: 0;
     }
 
     #footer .description {
         position: relative;
-        top: 103px;
+        top: 88px;
         left: 0;
         margin: 0;
         font-weight: 200;
