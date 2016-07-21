@@ -96,6 +96,18 @@
     float: left;
     margin-right: 40px;
     text-align: center;
+    cursor: pointer;
+}
+#orcamento .panel-value:hover
+{
+    -webkit-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    -moz-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    border: 1px solid #FF9C00;
+}
+#orcamento .panel-value:hover .price
+{
+    color: #000000;
 }
 #orcamento .panel-value .price {
     font-weight: 700;
@@ -147,11 +159,24 @@
     margin: 0 10px 10px 0;
     width: 155px;
 }
+#orcamento .parcelas li:hover
+{
+    -webkit-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    -moz-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);
+    border: 1px solid #FF9C00;
+    color: #000000;
+}
 #orcamento .parcelas .valores {
     float: right;
 }
 #orcamento .parcelas .prestacoes {
     display: inline-block;
+    font-size: 0.8em;
+}
+#orcamento .parcelas ul li
+{
+    cursor: pointer;
 }
 #orcamento .details .panel {
     -webkit-box-shadow: 3px 3px 0px 0px rgba(255,156,0,1);

@@ -3,30 +3,30 @@
     <div class="detail">{PLAN_DETAIL}</div>
 </div>
 
-<div class="parcelas">
+<div class="parcelas orcamento-preset">
     <ul>
 
-        <li>
+        <li onclick="orcamentoPreset('cartao', 1);">
             <div class="prestacoes">À VISTA</div>
             <div class="valores">{CARD_1X}</div>
         </li>
-        <li>
+        <li onclick="orcamentoPreset('cartao', 2);">
             <div class="prestacoes">2x</div>
             <div class="valores">{CARD_2X}</div>
         </li>
-        <li>
+        <li onclick="orcamentoPreset('cartao', 3);">
             <div class="prestacoes">3x</div>
             <div class="valores">{CARD_3X}</div>
         </li>
-        <li>
+        <li onclick="orcamentoPreset('cartao', 4);">
             <div class="prestacoes">4x</div>
             <div class="valores">{CARD_4X}</div>
         </li>
-        <li>
+        <li onclick="orcamentoPreset('cartao', 6);">
             <div class="prestacoes">6x</div>
             <div class="valores">{CARD_6X}</div>
         </li>
-        <li>
+        <li onclick="orcamentoPreset('cartao', 12);">
             <div class="prestacoes">12x</div>
             <div class="valores">{CARD_12X}</div>
         </li>
@@ -39,4 +39,4 @@
     <div class="panel">15% DE DESCONTO</div>
 </div>
 
-<button class="orcamento-contratar"c>CONTRATAR AGORA</button>
+<button class="orcamento-contratar" onclick="window.location.href='/cadastro'">CONTRATAR AGORA</button>

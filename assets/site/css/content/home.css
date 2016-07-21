@@ -101,7 +101,7 @@
 }
 .tmz-pre-content a.botao-comprar
 {
-    display: block;
+    display: none;
     background-color: #ff9c00;
     color: #ffffff;
     padding: 10px 30px;
@@ -113,6 +113,13 @@
     text-decoration: none;
     font-weight: 700;
     font-size: 1.4em;
+}
+@media (min-width: 650px)
+{
+    .tmz-pre-content a.botao-comprar
+    {
+        display: block;
+    }
 }
 /* PRECONTENT : END */
 /* DESCRIPTIONS : BEGIN */

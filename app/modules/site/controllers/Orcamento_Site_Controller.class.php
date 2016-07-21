@@ -140,4 +140,12 @@ class Orcamento_Site_Controller extends Controller
         $model->preFormPersist($_POST);
     }
 
+    public function preset()
+    {
+        Instances::getInstance()->Session()->setVar('orcamentoType', $_POST['type']);
+        Instances::getInstance()->Session()->setVar('orcamentoQtd', $_POST['qtd']);
+
+        echo 'Ok';
+    }
+
 }

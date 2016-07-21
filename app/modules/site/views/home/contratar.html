@@ -19,32 +19,32 @@
                     <ul class="tmz-list-par">
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card1" checked="checked">À vista</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="cartao_1" value="card1" checked="checked">À vista</div>
                             <div class="tmz-preco">R$ {card1x}</div>
                         </li>
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card2">2x</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="cartao_2" value="card2">2x</div>
                             <div class="tmz-preco">R$ {card2x}</div>
                         </li>
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card3">3x</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="cartao_3" value="card3">3x</div>
                             <div class="tmz-preco">R$ {card3x}</div>
                         </li>
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card4">4x</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="cartao_4" value="card4">4x</div>
                             <div class="tmz-preco">R$ {card4x}</div>
                         </li>
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card6">6x</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="cartao_6" value="card6">6x</div>
                             <div class="tmz-preco">R$ {card6x}</div>
                         </li>
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="card12">12x</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="cartao_12" value="card12">12x</div>
                             <div class="tmz-preco">R$ {card12x}</div>
                         </li>
 
@@ -64,12 +64,12 @@
                     <ul class="tmz-list-par">
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="slip1">À vista</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="boleto_1" value="slip1">À vista</div>
                             <div class="tmz-preco">R$ {slipYear}</div>
                         </li>
 
                         <li>
-                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" value="slip12">12x</div>
+                            <div class="tmz-parc"><input type="radio" name="tmz-form-pag" id="boleto_12" value="slip12">12x</div>
                             <div class="tmz-preco">R$ {slip}</div>
                         </li>
 
@@ -116,5 +116,6 @@
             <button class="form-next" type="submit" id="tmz-form-pag-actions">Prosseguir</button>
 
         </form>
+        <input type="hidden" id="preset" value="{PRESET}">
     </div>
 </div>

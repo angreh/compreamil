@@ -243,6 +243,17 @@ class Home_Site_Controller extends Controller
         $model = new Order_Site_Model();
         $values = $model->getAllPagValues();
 
+        $orcType = Instances::getInstance()->Session()->getVar('orcamentoType');
+        if( $orcType != false )
+        {
+            $orcType .= '_' . Instances::getInstance()->Session()->getVar('orcamentoQtd');
+            $values['PRESET'] = $orcType;
+        }
+        else
+        {
+            $values['PRESET'] = 'none';
+        }
+
         View::make('home.contratar',$values);
     }
 

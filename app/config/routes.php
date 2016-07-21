@@ -16,6 +16,7 @@ $routes = array
     'orcamento'             => 'site/orcamento/index',
     'orcamento/calc'        => 'site/orcamento/calc',
     'ajaxestimate'          => 'site/orcamento/presave',
+    'orcamento/preset'      => 'site/orcamento/preset',
 
 
     //site actions

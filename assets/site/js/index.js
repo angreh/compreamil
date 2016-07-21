@@ -68,7 +68,29 @@ $(function()
         }
     );
 
+    if( $('#preset').length )
+    {
+        var presetAux = $('#preset').val();
+        $('#' + presetAux).click();
+    }
+
 });
+
+function orcamentoPreset( type, qtd )
+{
+    $.ajax({
+        url: '/orcamento/preset',
+        method: 'post',
+        data: 'type=' + type + '&qtd=' + qtd,
+        success: function(data)
+        {
+            if(data == 'Ok')
+            {
+                window.location.href='/cadastro';
+            }
+        }
+    });
+}
 
 $.fn.centerH = function()
 {
