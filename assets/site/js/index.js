@@ -67,6 +67,7 @@ $(function()
             window.location.href = "/orcamento";
         }
     );
+
 });
 
 $.fn.centerH = function()

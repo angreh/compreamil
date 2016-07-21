@@ -259,6 +259,22 @@
     clear: both;
     /*padding-top: 10px;*/
 }
+#descriptions .cobertura-wrapper .cobertura-title
+{
+    font-weight: 700;
+    color: #008da2;
+    padding-left: 20px;
+    font-size: 1.2em;
+}
+#descriptions .cobertura-wrapper p
+{
+    padding: 0 0 30px 20px;
+    color: #00c2de;
+}
+#descriptions .cobertura
+{
+    margin-bottom: 30px;
+}
 /* DESCRIPTIONS : END */
 
 /* .content-'s : BEGIN */
