@@ -30,3 +30,36 @@
     background: url("/assets/admin/imgs/icon_alertSuccess.png") no-repeat 0 2px;
     padding-left: 20px;
 }
+/* MODS : DATATABLE */
+#pendentestable_length,
+#pendentestable_filter
+{
+    display: none;
+}
+table.dataTable tbody th, table.dataTable tbody td
+{
+    padding: 15px 5px;
+}
+td, th
+{
+    border-radius: 0;
+}
+table.dataTable thead th, table.dataTable thead td,
+table.dataTable.no-footer
+{
+    border-bottom: 1px solid #d0d0d0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover
+{
+    background: none;
+    border: none;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover
+{
+    font-weight: 700;
+    color: #333333 !important;
+}

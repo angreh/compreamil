@@ -48,4 +48,7 @@ $routes = array
     'adm/usuarios/add'          => 'admin/users/add',
     'adm/usuarios/edit/{id}'    => 'admin/users/edit',
     'adm/usuarios/remove/{id}'  => 'admin/users/remove',
+
+    //Testes
+    'adm/testes/datatable'      => 'admin/testes/datatable',
 );
