@@ -90,3 +90,12 @@ h3.titlehr
     color: #2bbbad;
     cursor: pointer;
 }
+table.dataTable
+{
+    width: 100% !important;
+}
+.dataTables_length,
+.dataTables_filter
+{
+    display: none;
+}

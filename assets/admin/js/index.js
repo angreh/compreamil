@@ -33,7 +33,7 @@ $(function(){
 
     if( $('#pendentestable').length )
     {
-        $('#pendentestable').DataTable({
+        $('#pendentestable,#test3 table').DataTable({
             pageLength: 15,
             language: {
                 "decimal":        "",
@@ -61,6 +61,14 @@ $(function(){
                 }
             }
         });
+
+        $('.tabs .tab a').on(
+            'click',
+            function()
+            {
+                //$('#pendentestable,#test3 table').columns.adjust().draw();
+            }
+        );
     }
 });
 
